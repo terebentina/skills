@@ -1,5 +1,5 @@
 ---
-name: fresh-eyes
+name: lets-plan
 description: Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree. Use when user wants to create a plan, stress-test a plan, or mentions planning.
 ---
 

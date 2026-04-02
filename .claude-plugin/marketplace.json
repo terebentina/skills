@@ -19,8 +19,14 @@
         "./fresh-eyes"
       ],
       "keywords": [
-        "product",
-        "prd"
+        "plan",
+        "planning",
+        "design",
+        "review",
+        "fresh-eyes",
+        "tdd",
+        "interview",
+        "architecture"
       ],
       "homepage": "https://github.com/terebentina/skills",
       "author": {
