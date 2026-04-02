@@ -1,0 +1,32 @@
+{
+  "name": "terebentina",
+  "owner": {
+    "name": "Dan Caragea",
+    "url": "https://github.com/terebentina"
+  },
+  "metadata": {
+    "description": "Collection of agent skills for planning, development, and tooling",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "terebentina",
+      "description": "Collection of agent skills for planning, development, and tooling",
+      "source": "./",
+      "category": "productivity",
+      "skills": [
+        "./lets-plan"
+      ],
+      "keywords": [
+        "product",
+        "prd"
+      ],
+      "homepage": "https://github.com/terebentina/skills",
+      "author": {
+        "name": "Dan Caragea",
+        "email": "dancaragea@gmail.com",
+        "url": "https://github.com/terebentina"
+      }
+    }
+  ]
+}

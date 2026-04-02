@@ -11,3 +11,12 @@ These skills help you think through problems before writing code.
   ```
   npx skills@latest add terebentina/skills/lets-plan
   ```
+- **fresh-eyes** — Review the plan with fresh eyes
+
+  ```
+  npx skills@latest add terebentina/skills/fresh-eyes
+  ```
+
+### Thanks
+
+Many thanks to [Matt Pocock](https://github.com/mattpocock) for his awesome teaching skills and always being an inspiration.
