@@ -3,6 +3,7 @@ name: lets-plan
 description: Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree. Use when user wants to create a plan, stress-test a plan, or mentions planning.
 ---
 
+- Switch to plan mode on invocation if not already in plan mode. 
 - Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one.
 - Make the plan extremely concise. Sacrifice grammar for the sake of concision.
 - For each question, use the question tool and provide your recommended answer.
