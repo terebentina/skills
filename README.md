@@ -2,6 +2,16 @@
 
 A collection of agent skills that extend capabilities across planning, development, and tooling.
 
+## Installation
+
+To install into claude code you can install all skills with:
+
+```
+claude plugins marketplace add terebentina/skills
+```
+
+Alternatively, you can install individual skills one by one for multiple LLMs and tools with the commands in the following section.
+
 ## Planning & Design
 
 These skills help you think through problems before writing code.
