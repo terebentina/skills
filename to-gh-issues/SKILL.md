@@ -49,19 +49,6 @@ Iterate until the user approves the breakdown.
 
 ### 5. Create the GitHub issues
 
-#### Preflight
-
-Run these checks.
-```
-# 1. Auth check
-gh auth status
-
-# 2. Ensure prd label exists
-gh label create prd --description "Product Requirements Document" --color "0052CC" 2>/dev/null || true
-```
-
-#### Create the GitHub sub-issues
-
 For each approved slice, create a GitHub issue using `gh issue create`. Use the issue body template below.
 
 Create issues in dependency order (blockers first) so you can reference real issue numbers in the "Blocked by" field.
