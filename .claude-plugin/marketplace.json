@@ -17,7 +17,8 @@
       "skills": [
         "./lets-plan",
         "./fresh-eyes",
-        "./to-prd"
+        "./to-gh-prd",
+        "./to-gh-issues"
       ],
       "keywords": [
         "plan",
