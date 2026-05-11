@@ -18,7 +18,7 @@
         "./lets-plan-code",
         "./lets-plan",
         "./fresh-eyes",
-        "/setup"
+        "./setup"
       ],
       "keywords": [
         "plan",

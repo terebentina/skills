@@ -1,6 +1,6 @@
 ---
 name: setup
-description: Sets up an `## Agent skills` block in AGENTS.md/CLAUDE.md and `docs/agents/` so the engineering skills know this repo's issue tracker, triage label vocabulary, and domain doc layout. Run before first use of `lets-plan-docs`, `to-issues`, `to-prd`, `improve-codebase-architecture` — or if those skills appear to be missing context about the issue tracker, triage labels, or domain docs.
+description: Sets up an `## Agent skills` block in AGENTS.md/CLAUDE.md and `docs/agents/` so the engineering skills know this repo's issue tracker, triage label vocabulary, and domain doc layout. Run before first use of `lets-plan-code`, `to-issues`, `to-prd`, `improve-codebase-architecture` — or if those skills appear to be missing context about the issue tracker, triage labels, or domain docs.
 disable-model-invocation: true
 ---
 
@@ -107,12 +107,12 @@ The block:
 
 Then write the three docs files using the seed templates in this skill folder as a starting point:
 
-- [issue-tracker-github.md](./issue-tracker-github.md) — GitHub issue tracker
-- [issue-tracker-gitlab.md](./issue-tracker-gitlab.md) — GitLab issue tracker
-- [issue-tracker-jira.md](./issue-tracker-jira.md) — Jira issue tracker
-- [issue-tracker-local.md](./issue-tracker-local.md) — local-markdown issue tracker
-- [triage-labels.md](./triage-labels.md) — label mapping
-- [domain.md](./domain.md) — domain doc consumer rules + layout
+- [issue-tracker-github.md](templates/issue-tracker-github.md) — GitHub issue tracker
+- [issue-tracker-gitlab.md](templates/issue-tracker-gitlab.md) — GitLab issue tracker
+- [issue-tracker-jira.md](templates/issue-tracker-jira.md) — Jira issue tracker
+- [issue-tracker-local.md](templates/issue-tracker-local.md) — local-markdown issue tracker
+- [triage-labels.md](templates/triage-labels.md) — label mapping
+- [domain.md](templates/domain.md) — domain doc consumer rules + layout
 
 For "other" issue trackers, write `docs/agents/issue-tracker.md` from scratch using the user's description.
 

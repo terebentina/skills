@@ -1,11 +1,7 @@
 ---
 name: lets-plan
-description: >-
-  Interview the user about a plan, resolving decisions one at a time until
-  ready to implement. Make sure to use this whenever the user wants to
-  create a plan, stress-test a plan, design a system, brainstorm
-  architecture, or says "let's plan", "help me think through", "what should
-  we consider", even without the word "plan".
+description: Interview the user about a plan, resolving decisions one at a time until ready to implement.
+disable-model-invocation: true
 ---
 
 <what-to-do>
