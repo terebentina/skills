@@ -15,10 +15,6 @@ Jira identifies issues by **issue key** (e.g. `PROJ-123`), not a numeric id. Whe
 
 The project key comes from `jira init`'s config file (`~/.config/.jira/.config.yml` by default) — not from `git remote`. There is no automatic git-host-to-Jira mapping.
 
-## Triage
-
-**In Jira, prefer mapping the triage roles onto workflow statuses rather than free-form labels.** Jira already has a native state machine, and using statuses keeps issues visible in board columns instead of buried in label filters. Set the role values in `triage-labels.md` to your project's status names, and the triage skill should use `jira issue move <KEY> "<Status>"` instead of `jira issue edit --label`.
-
 ## When a skill says "publish to the issue tracker"
 
 Create a Jira issue.
