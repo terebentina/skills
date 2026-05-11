@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Collection of agent skills for planning, development, and tooling",
-    "version": "1.2.0"
+    "version": "1.2.1"
   },
   "plugins": [
     {
@@ -14,12 +14,6 @@
       "description": "Collection of agent skills for planning, development, and tooling",
       "source": "./",
       "category": "productivity",
-      "skills": [
-        "./lets-plan-code",
-        "./lets-plan",
-        "./fresh-eyes",
-        "./setup"
-      ],
       "keywords": [
         "plan",
         "planning",
