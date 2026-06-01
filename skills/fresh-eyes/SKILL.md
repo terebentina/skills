@@ -14,4 +14,5 @@ Re-read the plan as if you've never seen it. For each section, ask:
 - **Internal contradictions** — does a later decision invalidate an earlier one?
 
 Surface every concern as a short bullet. Don't fix them — just flag them. For every concern, you must try to validate it's a valid concern. 
-If they require you to check a file, a package version, changelog history, etc, you must do and validate it's a real concern before presenting your findings.   
+If they require you to check a file, documentation, a package version, changelog history, etc, you must do and validate it's a real concern before presenting your findings.
+If a concern is proven to be a non-issue after exploring, then don't mention it at all in the list of findings.

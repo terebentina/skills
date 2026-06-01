@@ -15,13 +15,18 @@ Or for any LLM:
 npx skills@latest add terebentina/skills
 ```
 
-## Planning & Design
+## List of skills
 
-These skills help you think through problems before writing code.
-
-- **lets-plan** — Get relentlessly interviewed about a plan or design until every branch of the decision tree is resolved.
+- **lets-plan-code** — Get interviewed about a coding plan.
+- **lets-plan** — Get interviewed about a plan.
 - **fresh-eyes** — Review the plan with fresh eyes
-  
+
+Imported from [Matt's skills](https://github.com/mattpocock/skills):
+- **diagnose** - Disciplined diagnosis loop for hard bugs and performance regressions: reproduce → minimise → hypothesise → instrument → fix → regression-test.
+- **improve-codebase-architecture** - Find deepening opportunities in a codebase, informed by the domain language in CONTEXT.md and the decisions in docs/adr/
+- **to-issues** - Break any plan, spec, or PRD into independently-grabbable GitHub issues using vertical slices.
+- **to-prd** - Turn the current conversation context into a PRD and submit it as a GitHub issue. No interview — just synthesizes what you've already discussed.
+
 ### Thanks
 
 Many thanks to [Matt Pocock](https://github.com/mattpocock) for his awesome teaching skills and always being an inspiration.

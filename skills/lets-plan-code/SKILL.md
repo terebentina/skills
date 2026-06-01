@@ -1,22 +1,18 @@
 ---
 name: lets-plan-code
 description: >-
-  Plan interview that integrates with the repo's domain documentation —
-  challenges proposed terms against CONTEXT.md, sharpens fuzzy language,
-  cross-references against code, and offers ADRs for hard-to-reverse
-  decisions.
+  Plan session that integrates with the existing domain model, sharpens terminology, and updates documentation (CONTEXT.md, ADRs) inline as decisions crystallise.
 disable-model-invocation: true
 ---
 
 <what-to-do>
-1. Enter plan mode if not already in it.
-2. Interview the user relentlessly about every aspect of this plan. 
-3. Ask one question at a time via AskUserQuestion, always with a recommended answer. Integrate each answer before the next question.
-4. Order questions by leverage: resolve the decision that most constrains downstream choices first, then re-evaluate.
-5. If a question can be answered by exploring the codebase, explore the codebase instead.
-6. Stop when no unresolved decisions would change the implementation, or remaining questions are cosmetic.
-7. Write the plan in bullets. Minimal prose, skip filler, keep it extremely concise.
-8. Before ExitPlanMode, you MUST run `/terebentina:fresh-eyes` (a review pass that helps catch bad assumptions). Address anything it surfaces — return to step 2 if it raises new questions. Do not exit plan mode until the review is clean.
+1. Interview the user relentlessly about every aspect of this plan.
+2. Ask one question at a time via AskUserQuestion. Integrate each answer before the next question.
+3. Order questions by leverage: resolve the decision that most constrains downstream choices first, then re-evaluate.
+4. If a question can be answered by exploring the codebase, explore the codebase instead.
+5. Stop when no unresolved decisions would change the implementation, or remaining questions are cosmetic.
+6. Write the plan in bullets. Minimal prose, skip filler, keep it extremely concise.
+7. When the plan is complete you MUST run `/terebentina:fresh-eyes` (a review pass that helps catch bad assumptions). Address anything it surfaces — return to step 2 if it raises new questions.
 </what-to-do>
 
 <supporting-info>
