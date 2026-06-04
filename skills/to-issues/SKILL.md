@@ -7,7 +7,7 @@ description: Break a plan, spec, or PRD into independently-grabbable issues on t
 
 Break a plan into independently-grabbable issues using vertical slices (tracer bullets).
 
-The issue tracker and triage label vocabulary should have been provided to you — run `/setup-matt-pocock-skills` if not.
+The issue tracker and triage label vocabulary should have been provided to you — run `/terebentina:setup` if not.
 
 ## Process
 
@@ -55,10 +55,12 @@ For each approved slice, publish a new issue to the issue tracker. Use the issue
 
 Publish issues in dependency order (blockers first) so you can reference real issue identifiers in the "Blocked by" field.
 
+If the issue tracker supports it, link the new issues natively to their parent PRD and also in between them if they block each other.
+
 <issue-template>
 ## Parent
 
-A reference to the parent issue on the issue tracker (if the source was an existing issue, otherwise omit this section).
+A reference to the parent issue on the issue tracker if it exists (omit this section if the issues are linked natively in the issue tracker).
 
 ## What to build
 
@@ -74,10 +76,8 @@ Avoid specific file paths or code snippets — they go stale fast. Exception: if
 
 ## Blocked by
 
-- A reference to the blocking ticket (if any)
-
-Or "None - can start immediately" if no blockers.
+- A reference to the blocking ticket if any or "None - can start immediately" if no blockers (omit this section if the issues are linked natively in the issue tracker).
 
 </issue-template>
 
-Do NOT close or modify any parent issue.
+Do NOT close any parent issue.

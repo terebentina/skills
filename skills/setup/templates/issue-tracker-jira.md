@@ -12,8 +12,10 @@ Jira identifies issues by **issue key** (e.g. `PROJ-123`), not a numeric id. Whe
 - **Comment on an issue**: `jira issue comment add <KEY> "..."`. Add `--internal` for internal-only comments.
 - **Apply / remove labels**: `jira issue edit <KEY> --label foo` to add; `jira issue edit <KEY> --label -foo` to remove (prefix `-`). Multiple `--label` flags can be repeated.
 - **Close**: Jira closes via workflow transitions, not a dedicated close action. Use `jira issue move <KEY> "<Status>"` where `<Status>` is whatever your project's done state is (commonly `Done` or `Closed` — varies by workflow). Pass `--comment "..."` to transition-with-comment in one step.
+- **Link an issue to its PRD**: `jira issue edit <KEY> -P <PRD-key>`.
+- **Link issues and epics/PRDs**: `jira issue link <INWARD_ISSUE_KEY> <OUTWARD_ISSUE_KEY> <ISSUE_LINK_TYPE>`. Examples: `jira issue link APP-1 APP-2 Duplicate`, `jira issue link APP-1 APP-2 Block`
 
-The project key comes from `jira init`'s config file (`~/.config/.jira/.config.yml` by default) — not from `git remote`. There is no automatic git-host-to-Jira mapping.
+- The project key comes from `jira init`'s config file (`~/.config/.jira/.config.yml` by default) — not from `git remote`. There is no automatic git-host-to-Jira mapping.
 
 ## When a skill says "publish to the issue tracker"
 
