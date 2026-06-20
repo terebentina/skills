@@ -20,6 +20,7 @@ npx skills@latest add terebentina/skills
 - **lets-plan-code** — Get interviewed about a coding plan.
 - **lets-plan** — Get interviewed about a plan.
 - **fresh-eyes** — Review the plan with fresh eyes
+- **deps-up** — Update dependencies to the latest major version
 
 Imported from [Matt's skills](https://github.com/mattpocock/skills):
 - **diagnose** - Disciplined diagnosis loop for hard bugs and performance regressions: reproduce → minimise → hypothesise → instrument → fix → regression-test.
