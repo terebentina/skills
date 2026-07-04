@@ -1,13 +1,13 @@
 ---
 name: deps-up
-description: Update one or more npm packages to their latest version (even across majors) while respecting the package manager's minimumReleaseAge, then verify nothing broke against a baseline. Use when the user runs /deps-up with package names, or asks to upgrade/bump a dependency safely.
+description: Update one or more npm packages to their latest version (even across majors) while respecting the package manager's minimumReleaseAge, then verify nothing broke against a baseline. Use when the user runs /deps-up with package names, or asks to upgrade/bump a dependency.
 ---
 
 # Deps Up
 
 Update the requested package(s) to their latest version (across majors if needed), respecting the package manager's `minimumReleaseAge`, and prove nothing broke by comparing a before/after baseline AND inspecting the code against the actual package changes.
 
-The package(s) to update are passed as arguments, e.g. `/deps-up @apollo/client` or `/deps-up react react-dom`.
+The package(s) to update are passed as arguments, e.g. `/terebentina:deps-up @apollo/client` or `/terebentina:deps-up react react-dom`.
 
 ## Process
 

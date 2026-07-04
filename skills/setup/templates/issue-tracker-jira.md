@@ -24,3 +24,14 @@ Create a Jira issue.
 ## When a skill says "fetch the relevant ticket"
 
 Run `jira issue view <KEY> --comments 50`.
+
+## Wayfinding operations
+
+Used by `/terebentina:wayfinder`. The **map** is a single epic ticket with **child** issues as tickets.
+
+- **Map**: a single epic labelled `wayfinder:map`, holding the Notes / Decisions-so-far / Fog body.
+- **Child ticket**: an issue linked to the map as a sub-issue. Labels: `wayfinder:<type>` (`research`/`prototype`/`planning`/`task`). Once claimed, the ticket is assigned to the driving dev.
+- **Blocking**: Jira's **native issue dependencies** — the canonical, UI-visible representation. A ticket is unblocked when every blocker is closed.
+- **Frontier query**: list the map's open children (scoped to the map's sub-issues / task list), drop any with an open blocker or an assignee; first in map order wins.
+- **Claim**: Assign the issue to the user.
+- **Resolve**: Comment on the ticket with the summary then close it, then append a context pointer to the map's Decisions-so-far.
