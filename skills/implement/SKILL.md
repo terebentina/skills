@@ -43,7 +43,7 @@ Repeat until no open `ready-for-agent` tickets remain:
 
 1. **Compute the frontier**: open, `ready-for-agent`, unblocked tickets, in dependency order.
 2. If the frontier is empty but open ready tickets remain, they are all blocked by unfinished or failed work → **stop and report**; do not spin.
-3. **Dispatch** a subagent per frontier ticket. Parallelize only siblings you are confident touch **disjoint files**; when unsure, serialize them (run one, merge it, dispatch the next) — parallel worktrees editing shared files multiply conflicts. Cap parallelism at ~3 even when disjoint. Before dispatching each, **claim** its ticket per the tracker doc (assign `@me`) so concurrent runs skip it.
+3. **Dispatch** a subagent per frontier ticket. Parallelize only siblings you are confident touch **disjoint files**; when unsure, serialize them (run one, merge it, dispatch the next) — parallel worktrees editing shared files multiply conflicts. Cap parallelism at ~3 even when disjoint. Before dispatching each, **claim** its ticket per the tracker doc (assign `@me`) and change the ticket status to "in progress" so concurrent runs skip it.
 4. Give each subagent the **brief** below.
 5. As each returns, run the **merge protocol** below — **serially**, one worktree at a time, never two merges at once.
 6. Recompute the frontier (newly unblocked tickets appear) and continue.
