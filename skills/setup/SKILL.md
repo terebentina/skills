@@ -26,12 +26,13 @@ Look at the current repo to understand its starting state. Read whatever exists;
 - `docs/adr/` and any `src/*/docs/adr/` directories
 - `docs/agents/` — does this skill's prior output already exist?
 - `.scratch/` — sign that a local-markdown issue tracker convention is already in use
+- Monorepo signals — a `pnpm-workspace.yaml`, a `workspaces` field in `package.json`, or a populated `packages/*` with its own `src/`. Present only in a genuinely large multi-package repo; their absence means single-context, which is almost every repo.
 
 ### 2. Present findings and ask
 
-Summarise what's present and what's missing. Then walk the user through the three decisions **one at a time** — present a section, get the user's answer, then move to the next. Don't dump all three at once.
+Summarise what's present and what's missing. Then take the sections in order — one section, one answer, then the next.
 
-Assume the user does not know what these terms mean. Each section starts with a short explainer (what it is, why these skills need it, what changes if they pick differently). Then show the choices and the default.
+Lead each section with the recommended answer so the user can accept it in a word. Give a one-line explainer only when the choice genuinely branches; skip the section entirely when exploration already settled it.
 
 **Section A — Issue tracker.**
 
@@ -47,9 +48,7 @@ Default posture: these skills were designed for GitHub. If a `git remote` points
 
 If — and only if — the user picked **GitHub** or **GitLab**, ask one follow-up:
 
-> Explainer: Open-source repos often receive feature requests as pull requests, not just issues — a PR is an issue with attached code. If you turn this on, `/triage` pulls *external* PRs into the same queue and runs them through the same labels and states as issues (collaborators' in-flight PRs are left alone). Leave it off if PRs aren't a request surface for you.
-
-- **PRs as a request surface** — yes / no (default: no). Record the answer in `docs/agents/issue-tracker.md`. For local-markdown and other trackers, skip this question — there are no PRs.
+Record the choice in `docs/agents/issue-tracker.md`. The GitHub and GitLab templates carry a "PRs as a request surface" flag, defaulted **off** — leave it off and don't raise it; a user who wants external PRs in the triage queue can flip the flag in the file later.
 
 **Section B — Triage label vocabulary.**
 
@@ -63,21 +62,16 @@ The three canonical roles:
 
 Default: each role's string equals its name. Ask the user if they want to override any. If their issue tracker has no existing labels, the defaults are fine.
 
-**Section C — Domain docs.**
+**Section C — Domain docs.** Default to **single-context** — one `CONTEXT.md` + `docs/adr/` at the repo root. This fits almost every repo; write it without asking.
 
-> Explainer: Some skills (`lets-plan-code`, `improve-codebase-architecture`, `diagnose`) read a `CONTEXT.md` file to learn the project's domain language, and `docs/adr/` for past architectural decisions. They need to know whether the repo has one global context or multiple (e.g. a monorepo with separate frontend/backend contexts) so they look in the right place.
-
-Confirm the layout:
-
-- **Single-context** — one `CONTEXT.md` + `docs/adr/` at the repo root. Most repos are this.
-- **Multi-context** — `CONTEXT-MAP.md` at the root pointing to per-context `CONTEXT.md` files (typically a monorepo).
+Offer **multi-context** — a root `CONTEXT-MAP.md` pointing to per-context `CONTEXT.md` files — only when exploration found monorepo signals. Then confirm which layout they want.
 
 ### 3. Confirm and edit
 
 Show the user a draft of:
 
 - The `## Agent skills` block to add to whichever of `CLAUDE.md` / `AGENTS.md` is being edited (see step 4 for selection rules)
-- The contents of `docs/agents/issue-tracker.md`, `docs/agents/triage-labels.md`, `docs/agents/domain.md`
+- The contents of `docs/agents/issue-tracker.md`, `docs/agents/domain.md`, and `docs/agents/triage-labels.md` (the last only when `triage` is installed)
 
 Let them edit before writing.
 
@@ -100,7 +94,7 @@ The block:
 
 ### Issue tracker
 
-[one-line summary of where issues are tracked, plus whether external PRs are a triage surface]. See `docs/agents/issue-tracker.md`.
+[one-line summary of where issues are tracked]. See `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 
@@ -113,12 +107,12 @@ The block:
 
 Then write the three docs files using the seed templates in this skill folder as a starting point:
 
-- [issue-tracker-github.md](issue-tracker-github.md) — GitHub issue tracker
-- [issue-tracker-gitlab.md](issue-tracker-gitlab.md) — GitLab issue tracker
-- [issue-tracker-jira.md](issue-tracker-jira.md) — Jira issue tracker
-- [issue-tracker-local.md](issue-tracker-local.md) — local-markdown issue tracker
-- [triage-labels.md](triage-labels.md) — label mapping
-- [domain.md](domain.md) — domain doc consumer rules + layout
+- [issue-tracker-github.md](./issue-tracker-github.md) — GitHub issue tracker
+- [issue-tracker-gitlab.md](./issue-tracker-gitlab.md) — GitLab issue tracker
+- [issue-tracker-jira.md](./issue-tracker-jira.md) — Jira issue tracker
+- [issue-tracker-local.md](./issue-tracker-local.md) — local-markdown issue tracker
+- [triage-labels.md](./triage-labels.md) — label mapping
+- [domain.md](./domain.md) — domain doc consumer rules + layout
 
 For "other" issue trackers, write `docs/agents/issue-tracker.md` from scratch using the user's description.
 

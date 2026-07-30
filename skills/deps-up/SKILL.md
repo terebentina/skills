@@ -1,6 +1,7 @@
 ---
 name: deps-up
 description: Update one or more npm packages to their latest version (even across majors) while respecting the package manager's minimumReleaseAge, then verify nothing broke against a baseline. Use when the user runs /deps-up with package names, or asks to upgrade/bump a dependency.
+argument-hint: "<package name | all>"
 ---
 
 # Deps Up

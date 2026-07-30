@@ -1,0 +1,3 @@
+interface:
+  display_name: "Deps Up"
+  short_description: "Safely update project dependencies"

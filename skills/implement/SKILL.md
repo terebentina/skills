@@ -1,6 +1,7 @@
 ---
 name: implement
 description: Use when building the tickets of a spec/epic, or a single ticket, from the repo's issue tracker — the code-writing step after planning and ticketing. Invoked with an epic or ticket id.
+argument-hint: "<epic-id | ticket-id>"
 disable-model-invocation: true
 ---
 
