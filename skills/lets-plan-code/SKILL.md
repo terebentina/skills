@@ -16,7 +16,8 @@ Run a planning session, using the `/terebentina:domain-modeling` skill.
 4. If a question can be answered by exploring the codebase, explore the codebase instead.
 5. Stop when no unresolved decisions would change the implementation, or remaining questions are cosmetic.
 6. Write the plan in bullets. Minimal prose, skip filler, keep it extremely concise.
-7. When the plan is complete you MUST run `/terebentina:fresh-eyes` (a review pass that helps catch bad assumptions). Address anything it surfaces — return to step 2 if it raises new questions.
+7. When the plan is complete you MUST run `/terebentina:fresh-eyes` (a review pass that helps catch bad assumptions). Integrate its findings into your plan — return to step 2 if it raises new questions.
+8. Show a summary of how many questions I answered this session.
 </what-to-do>
 
 ## Supporting information
