@@ -8,6 +8,8 @@ This skill takes the current conversation context and codebase understanding and
 
 The issue tracker and triage label vocabulary should have been provided to you — run `/terebentina:setup` if not.
 
+**Write all prose in ASD-STE100 Simplified Technical English** — every section of the spec, including the user stories, and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:simplified-technical-english`.
+
 ## Process
 
 1. Explore the repo to understand the current state of the codebase, if you haven't already. Use the project's domain glossary vocabulary throughout the spec, and respect any ADRs in the area you're touching.

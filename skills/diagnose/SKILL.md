@@ -8,6 +8,8 @@ argument-hint: "problem description"
 
 A discipline for hard bugs. Skip phases only when explicitly justified.
 
+**Write all prose in ASD-STE100 Simplified Technical English** — hypotheses, debug log messages, the regression test's name and comments, the commit or PR message, the post-mortem, and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:simplified-technical-english`. Captured error output and stack traces are quoted evidence: paste them unchanged.
+
 When exploring the codebase, read `CONTEXT.md` (if it exists) to get a clear mental model of the relevant modules, and check ADRs in the area you're touching.
 
 ## Phase 1 — Build a feedback loop

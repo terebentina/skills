@@ -14,6 +14,8 @@ Scaffold the per-repo configuration that the engineering skills assume:
 
 This is a prompt-driven skill, not a deterministic script. Explore, present what you found, confirm with the user, then write.
 
+**Write all prose in ASD-STE100 Simplified Technical English** — the `docs/agents/*.md` files, the `## Agent skills` block, and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:simplified-technical-english`.
+
 ## Process
 
 ### 1. Explore

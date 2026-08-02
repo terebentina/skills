@@ -6,6 +6,10 @@ The brief states **what the agent should do**, which stretches to both surfaces:
 
 ## Principles
 
+### Simplified Technical English
+
+Write the whole brief in ASD-STE100 Simplified Technical English, per `/terebentina:simplified-technical-english`. The brief is a contract read by an agent days or weeks later, so ambiguity is expensive. Short active sentences, one instruction each, and one word per meaning. Type names, function names, and glossary terms are technical names — keep them exact.
+
 ### Durability over precision
 
 The issue may sit in `ready-for-agent` for days or weeks. The codebase will change in the meantime. Write the brief so it stays useful even as files are renamed, moved, or refactored.

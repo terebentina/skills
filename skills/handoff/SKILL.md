@@ -7,6 +7,8 @@ disable-model-invocation: true
 
 Write a handoff document summarising the current conversation so a fresh agent can continue the work. Save to the temporary directory of the user's OS - not the current workspace.
 
+**Write all prose in ASD-STE100 Simplified Technical English** — the whole handoff document, and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:simplified-technical-english`.
+
 Include a "suggested skills" section in the document, which suggests skills that the agent should invoke.
 
 Do not duplicate content already captured in other artifacts (PRDs, plans, ADRs, issues, commits, diffs). Reference them by path or URL instead.
