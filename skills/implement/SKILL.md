@@ -10,7 +10,7 @@ disable-model-invocation: true
 You are the **orchestrator**. You do not write ticket code yourself. You drive the dependency **frontier** of a spec: dispatch one subagent per unblocked ticket into an isolated worktree, integrate each returned worktree back to the spec branch one commit at a time, **re-verify after every merge**, then recompute the frontier and repeat until it is empty.
 
 **REQUIRED SUB-SKILLS** (name them in each subagent's brief, and use them yourself):
-- **Write all prose in ASD-STE100 Simplified Technical English** — commit messages, code comments, subagent briefs, ticket comments, the PR body, and your messages to the user — via `/terebentina:simplified-technical-english`.
+- **Write all prose in ASD-STE100 Simplified Technical English** — commit messages, code comments, subagent briefs, ticket comments, the PR body, and your messages to the user — via `/terebentina:ste`.
 - Subagents implement via superpowers:test-driven-development.
 - Worktree isolation via superpowers:using-git-worktrees.
 - Before claiming any ticket or the epic complete, superpowers:verification-before-completion.
@@ -55,7 +55,7 @@ Repeat until no open `ready-for-agent` tickets remain:
 Each subagent receives:
 - The ticket body and the epic's goal, plus the **summaries and cross-cutting decisions** returned by upstream/sibling tickets already merged (parallel subagents cannot see each other's code — this prose is the only channel between them).
 - Its worktree base: the **current spec-branch HEAD**.
-- The rules: implement via TDD (write tests, watch them fail, implement, watch them pass); run lint + typecheck at the end and at a couple of checkpoints; respect ADRs and the domain glossary; write every comment, commit message, and returned summary in ASD-STE100 Simplified Technical English per `/terebentina:simplified-technical-english`.
+- The rules: implement via TDD (write tests, watch them fail, implement, watch them pass); run lint + typecheck at the end and at a couple of checkpoints; respect ADRs and the domain glossary; write every comment, commit message, and returned summary in ASD-STE100 Simplified Technical English per `/terebentina:ste`.
 - What to return: its worktree branch name, a short summary of the work, findings relevant to downstream tickets, and **any decision it made that a sibling might contradict**.
 
 ### Merge protocol

@@ -10,7 +10,7 @@ Break a plan, spec, or conversation into a set of **tickets** — tracer-bullet 
 
 The issue tracker and triage label vocabulary should have been provided to you — run `/terebentina:setup` if not.
 
-**Write all prose in ASD-STE100 Simplified Technical English** — ticket titles, ticket bodies, acceptance criteria, and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:simplified-technical-english`.
+**Write all prose in ASD-STE100 Simplified Technical English** — ticket titles, ticket bodies, acceptance criteria, and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:ste`.
 
 ## Process
 

@@ -7,7 +7,7 @@ description: Build a throwaway prototype to answer a design question. Use when t
 
 A prototype is **throwaway code that answers a question**. The question decides the shape.
 
-**Write all prose in ASD-STE100 Simplified Technical English** — code comments, the prototype's on-screen and terminal text, the captured verdict, and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:simplified-technical-english`.
+**Write all prose in ASD-STE100 Simplified Technical English** — code comments, the prototype's on-screen and terminal text, the captured verdict, and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:ste`.
 
 ## Pick a branch
 

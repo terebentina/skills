@@ -8,7 +8,7 @@ The brief states **what the agent should do**, which stretches to both surfaces:
 
 ### Simplified Technical English
 
-Write the whole brief in ASD-STE100 Simplified Technical English, per `/terebentina:simplified-technical-english`. The brief is a contract read by an agent days or weeks later, so ambiguity is expensive. Short active sentences, one instruction each, and one word per meaning. Type names, function names, and glossary terms are technical names — keep them exact.
+Write the whole brief in ASD-STE100 Simplified Technical English, per `/terebentina:ste`. The brief is a contract read by an agent days or weeks later, so ambiguity is expensive. Short active sentences, one instruction each, and one word per meaning. Type names, function names, and glossary terms are technical names — keep them exact.
 
 ### Durability over precision
 

@@ -10,7 +10,7 @@ Update the requested package(s) to their latest version (across majors if needed
 
 The package(s) to update are passed as arguments, e.g. `/terebentina:deps-up @apollo/client` or `/terebentina:deps-up react react-dom`.
 
-**Write all prose in ASD-STE100 Simplified Technical English** — the breaking-change list, any code comments you add, the before/after report, the commit message, and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:simplified-technical-english`. Quoted changelog text keeps its original wording.
+**Write all prose in ASD-STE100 Simplified Technical English** — the breaking-change list, any code comments you add, the before/after report, the commit message, and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:ste`. Quoted changelog text keeps its original wording.
 
 ## Process
 

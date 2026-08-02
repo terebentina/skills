@@ -6,7 +6,7 @@ description: Re-read a draft plan with adversarial eyes before committing to it.
   or when user says "fresh eyes", "stress-test this", "what am I missing".
 ---
 
-**Write all prose in ASD-STE100 Simplified Technical English** — every concern you surface, and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:simplified-technical-english`.
+**Write all prose in ASD-STE100 Simplified Technical English** — every concern you surface, and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:ste`.
 
 Re-read the plan as if you've never seen it. For each section, ask:
 

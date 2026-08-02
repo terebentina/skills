@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 Surface architectural friction and propose **deepening opportunities** — refactors that turn shallow modules into deep ones. The aim is testability and AI-navigability.
 
-**Write all prose in ASD-STE100 Simplified Technical English** — every card in the HTML report, the top recommendation, any ADR you offer, and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:simplified-technical-english`. Name it in the brief of every `Explore` subagent you dispatch.
+**Write all prose in ASD-STE100 Simplified Technical English** — every card in the HTML report, the top recommendation, any ADR you offer, and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:ste`. Name it in the brief of every `Explore` subagent you dispatch.
 
 This command is _informed_ by the project's domain model and built on a shared design vocabulary:
 

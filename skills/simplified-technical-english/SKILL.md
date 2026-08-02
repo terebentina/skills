@@ -1,9 +1,9 @@
 ---
-name: simplified-technical-english
+name: ste
 description: Use when writing any prose — code comments, commit and PR messages, ADRs, CONTEXT.md, specs, tickets, triage comments, plans, reports, research notes, subagent briefs, or replies to the user. Gives the ASD-STE100 Simplified Technical English rules that every other skill in this collection requires.
 ---
 
-# Simplified Technical English
+# STE (Simplified Technical English)
 
 Write all prose in **ASD-STE100 Simplified Technical English (STE)**. STE is a controlled English standard with two parts: a dictionary of approved words, and a set of writing rules. It makes text unambiguous for readers, translators, and agents.
 

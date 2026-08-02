@@ -1,6 +1,6 @@
 # HTML Report Format
 
-**Write every word of copy in this report in ASD-STE100 Simplified Technical English**, per `/terebentina:simplified-technical-english` — headings, card bodies, diagram labels, and the top recommendation.
+**Write every word of copy in this report in ASD-STE100 Simplified Technical English**, per `/terebentina:ste` — headings, card bodies, diagram labels, and the top recommendation.
 
 The architectural review is rendered as a single self-contained HTML file in the OS temp directory. Tailwind and Mermaid both come from CDNs. Mermaid handles graph-shaped diagrams reliably; hand-built divs and inline SVG handle the more editorial visuals (mass diagrams, cross-sections). Mix the two — don't lean on Mermaid for everything, it'll start to look generic.
 

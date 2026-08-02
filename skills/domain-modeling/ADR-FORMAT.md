@@ -4,7 +4,7 @@ ADRs live in `docs/adr/` and use sequential numbering: `0001-slug.md`, `0002-slu
 
 Create the `docs/adr/` directory lazily — only when the first ADR is needed.
 
-Write every ADR in ASD-STE100 Simplified Technical English, per `/terebentina:simplified-technical-english`. An ADR is read years later by someone with no context, so it must be unambiguous.
+Write every ADR in ASD-STE100 Simplified Technical English, per `/terebentina:ste`. An ADR is read years later by someone with no context, so it must be unambiguous.
 
 ## Template
 
