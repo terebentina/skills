@@ -34,7 +34,7 @@ Read, don't assume:
 ## 3. Prepare
 
 1. Ensure a **clean working tree** and a **green baseline** — the branch must start from committed work that passes test/lint/typecheck, since every post-merge re-verification is measured against it. If the tree is dirty or the baseline is red, stop and ask.
-2. Create and switch to a branch named after the spec/ticket using the repo convention, based off the default branch. If the branch already exists, reuse it and resume (skip already-closed tickets).
+2. Create and switch to a branch named after the spec/ticket using the repo convention, based off the default branch. If the branch already exists, reuse it and resume (skip already-closed tickets). Ensure any relevant but gitignored .env and node_modules are inside the worktrees.   
 3. **Epic:** collect children that are open AND labelled `ready-for-agent`, and read their native blocking edges to build the dependency tree. A ticket is **unblocked** when every ticket blocking it is closed (a closed blocker is satisfied; a blocker that lacks `ready-for-agent` is not something you will build — if it gates a ready ticket, that dependent can never start: report it, don't silently skip).
    **Single ticket:** the "tree" is that one ticket. If it is itself blocked by an open ticket, stop and ask the user how to proceed (build the blocker first / proceed anyway / wait) — do not guess.
 
