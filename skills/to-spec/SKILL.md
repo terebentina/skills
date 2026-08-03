@@ -8,7 +8,7 @@ This skill takes the current conversation context and codebase understanding and
 
 The issue tracker and triage label vocabulary should have been provided to you — run `/terebentina:setup` if not.
 
-**Write all prose in ASD-STE100 Simplified Technical English** — every section of the spec, including the user stories, and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:ste`.
+**Write all prose in ASD-STE100 Simplified Technical English** — every section of the spec, including the user stories, and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:domain-modeling`.
 
 ## Process
 

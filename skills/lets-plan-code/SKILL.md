@@ -9,7 +9,7 @@ argument-hint: "work description"
 
 Run a planning session, using the `/terebentina:domain-modeling` skill.
 
-**Write all prose in ASD-STE100 Simplified Technical English** — the plan bullets, your questions, the `CONTEXT.md` and ADR updates, and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:ste`.
+**Write all prose in ASD-STE100 Simplified Technical English** — the plan bullets, your questions, the `CONTEXT.md` and ADR updates, and your messages to the user. The `/terebentina:domain-modeling` skill above gives the rules.
 
 <what-to-do>
 1. Interview the user relentlessly about every aspect of this plan.

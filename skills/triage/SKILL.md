@@ -10,7 +10,7 @@ Move issues on the project issue tracker through a small state machine of triage
 
 If this repo treats external pull requests as a request surface (see the issue-tracker config), triage covers them too: **a PR is an issue with attached code** — same roles, same states, same machine, with a few deltas marked "for a PR" below. Resolve a bare `#42` to an issue or PR per the tracker config.
 
-**Write all prose in ASD-STE100 Simplified Technical English** — triage notes, agent briefs, `.out-of-scope/` entries, close comments, and your messages to the maintainer. **REQUIRED SUB-SKILL:** `/terebentina:ste`. The reporter's words stay as written when you quote them.
+**Write all prose in ASD-STE100 Simplified Technical English** — triage notes, agent briefs, `.out-of-scope/` entries, close comments, and your messages to the maintainer. **REQUIRED SUB-SKILL:** `/terebentina:domain-modeling`. The reporter's words stay as written when you quote them.
 
 Every comment or issue posted to the issue tracker during triage **must** start with this disclaimer:
 

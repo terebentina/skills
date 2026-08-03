@@ -5,7 +5,7 @@ description: Shared vocabulary for designing deep modules. Use when the user wan
 
 # Codebase Design
 
-**Write all prose in ASD-STE100 Simplified Technical English** — interface documentation, code comments, design write-ups, and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:ste`. The glossary below is a set of technical names: STE keeps them exact rather than simplifying them.
+**Write all prose in ASD-STE100 Simplified Technical English** — interface documentation, code comments, design write-ups, and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:domain-modeling`. The glossary below is a set of technical names: STE keeps them exact rather than simplifying them.
 
 Design **deep modules**: a lot of behaviour behind a small interface, placed at a clean seam, testable through that interface. Use this language and these principles wherever code is being designed or restructured. The aim is leverage for callers, locality for maintainers, and testability for everyone.
 
