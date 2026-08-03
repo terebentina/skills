@@ -1,7 +1,6 @@
 ---
 name: triage
-description: Move issues and external PRs through a state machine of triage roles — categorise, verify, plan if needed, and write agent-ready briefs.
-disable-model-invocation: true
+description: Move issues and external pull requests through triage roles. Use only when the user asks to triage work.
 ---
 
 # Triage
@@ -10,7 +9,7 @@ Move issues on the project issue tracker through a small state machine of triage
 
 If this repo treats external pull requests as a request surface (see the issue-tracker config), triage covers them too: **a PR is an issue with attached code** — same roles, same states, same machine, with a few deltas marked "for a PR" below. Resolve a bare `#42` to an issue or PR per the tracker config.
 
-**Write all prose in ASD-STE100 Simplified Technical English** — triage notes, agent briefs, `.out-of-scope/` entries, close comments, and your messages to the maintainer. **REQUIRED SUB-SKILL:** `/terebentina:domain-modeling`. The reporter's words stay as written when you quote them.
+**Write all prose in ASD-STE100 Simplified Technical English** — triage notes, agent briefs, `.out-of-scope/` entries, close comments, and your messages to the maintainer. **REQUIRED SUB-SKILL:** `domain-modeling`. The reporter's words stay as written when you quote them.
 
 Every comment or issue posted to the issue tracker during triage **must** start with this disclaimer:
 
@@ -42,13 +41,13 @@ For a PR, the same states read against the attached code: `ready-for-agent` mean
 
 Every triaged issue should carry exactly one category role and one state role. If state roles conflict, flag it and ask the maintainer before doing anything else.
 
-These are canonical role names — the actual label strings used in the issue tracker may differ. The mapping should have been provided to you - run `/setup-matt-pocock-skills` if not.
+These are canonical role names — the actual label strings used in the issue tracker may differ. Run `setup` if the mapping is missing.
 
 State transitions: an unlabeled issue normally goes to `needs-triage` first; from there it moves to `needs-info`, `ready-for-agent`, `ready-for-human`, or `wontfix`. `needs-info` returns to `needs-triage` once the reporter replies. The maintainer can override at any time — flag transitions that look unusual and ask before proceeding.
 
 ## Invocation
 
-The maintainer invokes `/terebentina:triage` and describes what they want in natural language. Interpret the request and act. Examples:
+The maintainer invokes `triage` and describes what they want in natural language. Interpret the request and act. Examples:
 
 - "Show me anything that needs my attention"
 - "Let's look at #42" (issue or PR)
@@ -75,7 +74,7 @@ Show counts and a one-line summary per item. Let the maintainer pick.
 
 3. **Verify the claim.** Before any planning, check that the claim holds up. For a bug, reproduce it from the reporter's steps. For a PR, confirm the diff does what it claims — check it out, run the relevant tests or commands. Report what happened: confirmed (with code path), failed, or insufficient detail (a strong `needs-info` signal). A confirmed verification makes a much stronger agent brief.
 
-4. **Plan (if needed).** If the request needs fleshing out, run the `/terebentina:lets-plan-code` and `/terebentina:domain-modeling` skills together — plan it into shape one question at a time, sharpening domain terms and updating `CONTEXT.md`/ADRs inline as decisions land.
+4. **Plan (if needed).** If the request needs fleshing out, run the `lets-plan-code` and `domain-modeling` skills together — plan it into shape one question at a time, sharpening domain terms and updating `CONTEXT.md`/ADRs inline as decisions land.
 
 5. **Apply the outcome:**
    - `ready-for-agent` — post an agent brief comment ([AGENT-BRIEF.md](AGENT-BRIEF.md)).

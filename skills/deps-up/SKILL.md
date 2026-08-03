@@ -1,16 +1,15 @@
 ---
 name: deps-up
-description: Update one or more npm packages to their latest version (even across majors) while respecting the package manager's minimumReleaseAge, then verify nothing broke against a baseline. Use when the user runs /deps-up with package names, or asks to upgrade/bump a dependency.
-argument-hint: "<package name | all>"
+description: Update npm packages across major versions while respecting minimumReleaseAge, then compare the result against a baseline. Use when the user asks to upgrade dependencies.
 ---
 
 # Deps Up
 
 Update the requested package(s) to their latest version (across majors if needed), respecting the package manager's `minimumReleaseAge`, and prove nothing broke by comparing a before/after baseline AND inspecting the code against the actual package changes.
 
-The package(s) to update are passed as arguments, e.g. `/terebentina:deps-up @apollo/client` or `/terebentina:deps-up react react-dom`.
+Read the package names from the user's request. The user can name one package, multiple packages, or all packages.
 
-**Write all prose in ASD-STE100 Simplified Technical English** — the breaking-change list, any code comments you add, the before/after report, the commit message, and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:domain-modeling`. Quoted changelog text keeps its original wording.
+**Write all prose in ASD-STE100 Simplified Technical English** — the breaking-change list, any code comments you add, the before/after report, the commit message, and your messages to the user. **REQUIRED SUB-SKILL:** `domain-modeling`. Quoted changelog text keeps its original wording.
 
 ## Process
 

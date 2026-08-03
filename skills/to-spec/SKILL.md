@@ -1,14 +1,13 @@
 ---
 name: to-spec
-description: Turn the current conversation into a spec and publish it to the project issue tracker — no interview, just synthesis of what you've already discussed.
-disable-model-invocation: true
+description: Turn the current conversation into a spec in the issue tracker. Use only when the user asks for a spec.
 ---
 
 This skill takes the current conversation context and codebase understanding and produces a spec (you may know this document as a PRD). Do NOT interview the user — just synthesize what you already know.
 
-The issue tracker and triage label vocabulary should have been provided to you — run `/terebentina:setup` if not.
+The issue tracker and triage label vocabulary should have been provided to you — run `setup` if not.
 
-**Write all prose in ASD-STE100 Simplified Technical English** — every section of the spec, including the user stories, and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:domain-modeling`.
+**Write all prose in ASD-STE100 Simplified Technical English** — every section of the spec, including the user stories, and your messages to the user. **REQUIRED SUB-SKILL:** `domain-modeling`.
 
 ## Process
 

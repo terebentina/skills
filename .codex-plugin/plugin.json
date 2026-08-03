@@ -1,0 +1,39 @@
+{
+  "name": "terebentina",
+  "version": "2.0.0",
+  "description": "Engineering skills for planning, research, design, diagnosis, and delivery.",
+  "author": {
+    "name": "Dan Caragea",
+    "email": "dancaragea@gmail.com",
+    "url": "https://github.com/terebentina"
+  },
+  "homepage": "https://github.com/terebentina/skills",
+  "repository": "https://github.com/terebentina/skills",
+  "license": "MIT",
+  "keywords": [
+    "planning",
+    "research",
+    "architecture",
+    "triage",
+    "development"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Terebentina Skills",
+    "shortDescription": "Engineering workflows for planning and delivery",
+    "longDescription": "Plan work, research decisions, improve module design, diagnose failures, and deliver issue-tracker work.",
+    "developerName": "Dan Caragea",
+    "category": "Productivity",
+    "capabilities": [
+      "Plan",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/terebentina/skills",
+    "defaultPrompt": [
+      "Use Terebentina Skills to plan a coding change.",
+      "Use Terebentina Skills to diagnose this bug.",
+      "Use Terebentina Skills to triage the issue queue."
+    ]
+  }
+}

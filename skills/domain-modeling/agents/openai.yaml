@@ -1,3 +1,4 @@
 interface:
   display_name: "Domain Modeling"
   short_description: "Write in ASD-STE100 STE; build and sharpen a domain model"
+  default_prompt: "Use $domain-modeling to apply the project language and STE rules."

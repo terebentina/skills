@@ -1,14 +1,13 @@
 ---
 name: diagnose
 description: Diagnosis loop for hard bugs and performance regressions. Use when the user says "diagnose"/"debug this", or reports something broken/throwing/failing/slow.
-argument-hint: "problem description"
 ---
 
 # Diagnose
 
 A discipline for hard bugs. Skip phases only when explicitly justified.
 
-**Write all prose in ASD-STE100 Simplified Technical English** — hypotheses, debug log messages, the regression test's name and comments, the commit or PR message, the post-mortem, and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:domain-modeling`. Captured error output and stack traces are quoted evidence: paste them unchanged.
+**Write all prose in ASD-STE100 Simplified Technical English** — hypotheses, debug log messages, the regression test's name and comments, the commit or PR message, the post-mortem, and your messages to the user. **REQUIRED SUB-SKILL:** `domain-modeling`. Captured error output and stack traces are quoted evidence: paste them unchanged.
 
 When exploring the codebase, read `CONTEXT.md` (if it exists) to get a clear mental model of the relevant modules, and check ADRs in the area you're touching.
 
@@ -134,4 +133,4 @@ Required before declaring done:
 - [ ] Throwaway prototypes deleted (or moved to a clearly-marked debug location)
 - [ ] The hypothesis that turned out correct is stated in the commit / PR message — so the next debugger learns
 
-**Then ask: what would have prevented this bug?** If the answer involves architectural change (no good test seam, tangled callers, hidden coupling) hand off to the `/terebentina:improve-codebase-architecture` skill with the specifics. Make the recommendation **after** the fix is in, not before — you have more information now than when you started.
+**Then ask: what would have prevented this bug?** If the answer involves architectural change (no good test seam, tangled callers, hidden coupling) hand off to the `improve-codebase-architecture` skill with the specifics. Make the recommendation **after** the fix is in, not before — you have more information now than when you started.

@@ -8,7 +8,7 @@ The brief states **what the agent should do**, which stretches to both surfaces:
 
 ### Simplified Technical English
 
-Write the whole brief in ASD-STE100 Simplified Technical English, per `/terebentina:domain-modeling`. The brief is a contract read by an agent days or weeks later, so ambiguity is expensive. Short active sentences, one instruction each, and one word per meaning. Type names, function names, and glossary terms are technical names — keep them exact.
+Write the whole brief in ASD-STE100 Simplified Technical English, per `domain-modeling`. The brief is a contract read by an agent days or weeks later, so ambiguity is expensive. Short active sentences, one instruction each, and one word per meaning. Type names, function names, and glossary terms are technical names — keep them exact.
 
 ### Durability over precision
 
@@ -26,7 +26,7 @@ Describe **what** the system should do, not **how** to implement it. The agent w
 
 - **Good:** "The `SkillConfig` type should accept an optional `schedule` field of type `CronExpression`"
 - **Bad:** "Open src/types/skill.ts and add a schedule field on line 42"
-- **Good:** "When a user runs `/triage` with no arguments, they should see a summary of issues needing attention"
+- **Good:** "When a user runs `triage` with no arguments, they should see a summary of issues needing attention"
 - **Bad:** "Add a switch statement in the main handler function"
 
 ### Complete acceptance criteria

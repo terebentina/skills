@@ -1,3 +1,4 @@
 interface:
   display_name: "Deps Up"
   short_description: "Safely update project dependencies"
+  default_prompt: "Use $deps-up to update React and verify the change against a baseline."

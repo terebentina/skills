@@ -1,6 +1,6 @@
 # Wayfinder Operations
 
-All files created by the `/terebentina:wayfinder` skill live in this repo under `.scratch/wayfinder/`.
+All files created by the `wayfinder` skill live in this repo under `.scratch/wayfinder/`.
 
  The **map** is a file with one **child** file per ticket.
 

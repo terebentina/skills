@@ -1,12 +1,11 @@
 ---
 name: wayfinder
-description: Plan a huge chunk of work — more than one agent session can hold — as a shared map of decision tickets, and resolve them one at a time until the way to the destination is clear.
-disable-model-invocation: true
+description: Map work that exceeds one agent session as decision tickets. Use only when the user asks to create or continue a wayfinder map.
 ---
 
 A loose idea has arrived — too big for one agent session, and wrapped in fog: the way from here to the **destination** isn't visible yet. Wayfinding is about finding that way, not charging at the destination. This skill charts the way as a **shared map** on the repo's issue tracker, then works its **decision tickets** — questions whose resolution is a decision, not slices of a build to execute — one at a time until the route is clear.
 
-**Write all prose in ASD-STE100 Simplified Technical English** — the map body, ticket questions, resolution comments, the Decisions-so-far gists, and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:domain-modeling`. Name it in the brief of every research subagent you fire.
+**Write all prose in ASD-STE100 Simplified Technical English** — the map body, ticket questions, resolution comments, the Decisions-so-far gists, and your messages to the user. **REQUIRED SUB-SKILL:** `domain-modeling`. Name it in the brief of every research subagent you fire.
 
 The destination varies per effort, and naming it is the first act of charting — it shapes every ticket. It might be a spec to hand off and iterate on, a decision to lock before planning starts, or a change made in place like a data-structure migration. The map is domain-agnostic — engineering work, course content, whatever fits the shape.
 
@@ -24,7 +23,7 @@ The map is a single issue in `.scratch/wayfinder/<effort>/map.md`, labelled `way
 
 The map is an **index**, not a store. It lists the decisions made and points at the tickets that hold their detail; a decision lives in exactly one place — its ticket — so the map never restates it, only gists it and links.
 
-**The map, its child tickets, blocking, and frontier queries all live in local files.** The exact folder should have been provided to you — run `/terebentina:setup` if not. Consult "Wayfinding operations" section for this.
+**The map, its child tickets, blocking, and frontier queries all live in local files.** The exact folder should have been provided to you — run `setup` if not. Consult "Wayfinding operations" section for this.
 
 ### The map body
 
@@ -76,9 +75,9 @@ The answer isn't part of the body — it's recorded on resolution (see [Work thr
 
 Every ticket is either **HITL** — human in the loop, worked *with* a human who speaks for themselves — or **AFK**, driven by the agent alone. A HITL ticket only resolves through that live exchange; the agent never stands in for the human's side of it (a planning agent that answers its own questions has broken this).
 
-- **Research** (AFK): Reading documentation, third-party APIs, or local resources like knowledge bases to surface a fact a decision waits on. Resolved by a `/terebentina:research` **subagent**. Use when knowledge outside the current working directory is required.
-- **Prototype** (HITL): Raise the fidelity of the discussion by making a cheap, rough, concrete artifact to react to — an outline, a rough take, a stub, or UI/logic code via the /terebentina:prototype skill. Links the prototype as an asset. Use when "how should it look" or "how should it behave" is the key question.
-- **Planing** (HITL): Conversation via the /terebentina:lets-plan-code and /terebentina:domain-modeling skills, one question at a time. The default case.
+- **Research** (AFK): Reading documentation, third-party APIs, or local resources like knowledge bases to surface a fact a decision waits on. Resolved by a `research` **subagent**. Use when knowledge outside the current working directory is required.
+- **Prototype** (HITL): Raise the fidelity of the discussion by making a cheap, rough, concrete artifact to react to — an outline, a rough take, a stub, or UI/logic code via the prototype skill. Links the prototype as an asset. Use when "how should it look" or "how should it behave" is the key question.
+- **Planing** (HITL): Conversation via the lets-plan-code and domain-modeling skills, one question at a time. The default case.
 - **Task** (HITL or AFK): Manual work that must happen before a *decision* can be made — nothing to decide, prototype, or research, but the discussion is blocked until it's done. Signing up for a service so its API can be judged, provisioning access, moving data so its shape can be seen. This is the one type that *does* rather than decides — and it earns its place by unblocking a decision, not by delivering the destination. The agent drives it alone where it can (AFK); otherwise it hands the human a precise checklist (HITL). Resolved when the work is done; the answer records what was done and any resulting facts (credentials location, new URLs, row counts) later tickets depend on.
 
 ## Fog of war
@@ -110,11 +109,11 @@ Two modes. Either way, **never resolve more than one ticket per session** — ex
 
 User invokes with a loose idea.
 
-1. **Name the destination.** Run a `/terebentina:lets-plan-code` and `/terebentina:domain-modeling` session to pin down what this map is finding its way to — the spec, decision, or change. The destination fixes the scope, so it's settled first.
+1. **Name the destination.** Run a `lets-plan-code` and `domain-modeling` session to pin down what this map is finding its way to — the spec, decision, or change. The destination fixes the scope, so it's settled first.
 2. **Map the frontier.** Plan again, **breadth-first** this time: fan out across the whole space rather than deep on any one thread, surfacing the open decisions and the first steps takeable now. **If this surfaces no fog** — the way to the destination is already clear, the whole journey small enough for one session — you don't need a map. Stop and ask the user how they'd like to proceed.
 3. **Create the map** (label `wayfinder:map`): Destination and Notes filled in, Decisions-so-far empty, the fog sketched into **Not yet specified**.
 4. **Create the tickets you can specify now** as child issues of the map — then wire blocking edges in a **second pass** (issues need ids before they can reference each other). Wiring sorts them into the frontier and the blocked; everything you can't yet specify stays in the fog — the **Not yet specified** section.
-5. **Fire the research subagents.** For each `research` ticket you just created, spin up a `/research` subagent to resolve it in parallel, capturing its findings on a throwaway `research/<name>` branch with a context pointer from the ticket.
+5. **Start the research subagents.** For each `research` ticket, start one subagent with the `research` skill and an isolated branch.
 6. Stop — charting is one session's work; it hand-resolves nothing.
 
 ### Work through the map
@@ -123,7 +122,7 @@ User invokes with a map (URL or number). A ticket is **optional** — without on
 
 1. Load the **map** — the low-res view, not every ticket body.
 2. Choose the ticket. If the user named one, use it. Otherwise take the first frontier ticket in order. **Claim it**: assign it to yourself before any work.
-3. Resolve it — **zoom as needed**: fetch the full body of any related or closed ticket on demand; invoke the skills the `## Notes` block names. If in doubt, use `/terebentina:lets-plan-code` and `/terebentina:domain-modeling`.
+3. Resolve it — **zoom as needed**: fetch the full body of any related or closed ticket on demand; invoke the skills the `## Notes` block names. If in doubt, use `lets-plan-code` and `domain-modeling`.
 4. Record the resolution: post the answer as a **resolution comment**, **close** the issue, and **append a context pointer** to the map's Decisions-so-far.
 5. Add newly-surfaced tickets (create-then-wire); graduate any fog the answer has made specifiable, clearing each graduated patch from **Not yet specified** so it lives only as its new ticket. If the answer reveals a ticket — this one or another — sits beyond the destination, **rule it out of scope** rather than resolving it on the route. If the decision invalidates other parts of the map, update or delete those tickets.
 

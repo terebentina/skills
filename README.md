@@ -1,21 +1,38 @@
-# Agent Skills
+# Terebentina Agent Skills
 
-A collection of agent skills that extend capabilities across planning, development, and tooling.
-Most of these are based on Matt Pocock's skills with tweaks and additions to suit my needs.
+This repository contains reusable skills for planning, research, design, diagnosis, and delivery.
+Most skills started from Matt Pocock's work and include changes for this workflow.
 
-## Installation
+The shared `SKILL.md` files use host-neutral instructions. Product-specific metadata stays in separate integration files.
 
-To install into claude code:
+## Install in Codex
 
+Add this repository as a plugin marketplace:
+
+```bash
+codex plugin marketplace add terebentina/skills
 ```
+
+Start Codex and run `/plugins`. Install the `terebentina` plugin, then start a new session.
+
+## Install in Claude Code
+
+```bash
 claude plugins marketplace add terebentina/skills
 ```
 
-Or for any LLM:
-```
+## Install in another Agent Skills host
+
+```bash
 npx skills@latest add terebentina/skills
 ```
 
-### Thanks
+## Validate changes
 
-Many thanks to [Matt Pocock](https://github.com/mattpocock) for his awesome teaching skills and always being an inspiration.
+```bash
+python3 check_skills.py
+```
+
+## Thanks
+
+Thanks to [Matt Pocock](https://github.com/mattpocock) for his teaching and original skills.

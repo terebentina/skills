@@ -1,7 +1,6 @@
 ---
 name: setup
-description: Configure this repo for the engineering skills — set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills.
-disable-model-invocation: true
+description: Configure the issue tracker, triage labels, and domain docs for these engineering skills. Use only when the user asks for setup.
 ---
 
 # Setup Engineering Skills
@@ -14,7 +13,7 @@ Scaffold the per-repo configuration that the engineering skills assume:
 
 This is a prompt-driven skill, not a deterministic script. Explore, present what you found, confirm with the user, then write.
 
-**Write all prose in ASD-STE100 Simplified Technical English** — the `docs/agents/*.md` files, the `## Agent skills` block, and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:domain-modeling`.
+**Write all prose in ASD-STE100 Simplified Technical English** — the `docs/agents/*.md` files, the `## Agent skills` block, and your messages to the user. **REQUIRED SUB-SKILL:** `domain-modeling`.
 
 ## Process
 
@@ -23,7 +22,7 @@ This is a prompt-driven skill, not a deterministic script. Explore, present what
 Look at the current repo to understand its starting state. Read whatever exists; don't assume:
 
 - `git remote -v` and `.git/config` — is this a GitHub repo? Which one?
-- `AGENTS.md` and `CLAUDE.md` at the repo root — does either exist? Is there already an `## Agent skills` section in either?
+- `AGENTS.md` and `CLAUDE.md` at the repo root — does either file exist? Does either file contain an `## Agent skills` section?
 - `CONTEXT.md` and `CONTEXT-MAP.md` at the repo root
 - `docs/adr/` and any `src/*/docs/adr/` directories
 - `docs/agents/` — does this skill's prior output already exist?
@@ -69,22 +68,21 @@ Offer **multi-context** — a root `CONTEXT-MAP.md` pointing to per-context `CON
 
 Show the user a draft of:
 
-- The `## Agent skills` block to add to whichever of `CLAUDE.md` / `AGENTS.md` is being edited (see step 4 for selection rules)
+- The shared `## Agent skills` block to add to `AGENTS.md` and `CLAUDE.md`
 - The contents of `docs/agents/issue-tracker.md`, `docs/agents/domain.md`, and `docs/agents/triage-labels.md` (the last only when `triage` is installed)
 
 Let them edit before writing.
 
 ### 4. Write
 
-**Pick the file to edit:**
+**Edit both host instruction files:**
 
-- If `CLAUDE.md` exists, edit it.
-- Else if `AGENTS.md` exists, edit it.
-- If neither exists, ask the user which one to create — don't pick for them.
+- Update `AGENTS.md` and `CLAUDE.md` when they exist.
+- Create either file when it does not exist.
+- Keep the `## Agent skills` block identical in both files.
+- Preserve all content outside that block.
 
-Never create `AGENTS.md` when `CLAUDE.md` already exists (or vice versa) — always edit the one that's already there.
-
-If an `## Agent skills` block already exists in the chosen file, update its contents in-place rather than appending a duplicate. Don't overwrite user edits to the surrounding sections.
+If an `## Agent skills` block exists, update it in place. Do not append a duplicate block.
 
 The block:
 

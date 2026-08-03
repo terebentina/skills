@@ -76,7 +76,7 @@ STE permits technical names and technical verbs. A glossary fixes their meaning,
 A word is a technical name only when a glossary defines it. Three glossaries can define one:
 
 - **The repo's `CONTEXT.md`** — the project's domain terms. "Build the model" below maintains this file, and it is the only list of domain terms. A term's `_Avoid_` list names the synonyms that rule 1 forbids.
-- **The glossary of a skill you run under.** The `/terebentina:codebase-design` glossary holds the architecture terms. A skill can also define its own named concepts in its own text.
+- **The glossary of a skill you run under.** The `codebase-design` glossary holds the architecture terms. A skill can also define its own named concepts in its own text.
 - **Product, library, tool, and API names.**
 
 Do not replace a technical name with a plainer word, and do not give it a synonym. A precise term beats a simple one.

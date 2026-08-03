@@ -5,7 +5,7 @@ description: Investigate a question against high-trust primary sources and captu
 
 Spin up a **background agent** to do the research, so you keep working while it reads.
 
-**Write all prose in ASD-STE100 Simplified Technical English** — the findings file and your messages to the user. **REQUIRED SUB-SKILL:** `/terebentina:domain-modeling`. Name that skill in the background agent's brief, and tell it that quotations from a source keep their original wording.
+**Write all prose in ASD-STE100 Simplified Technical English** — the findings file and your messages to the user. **REQUIRED SUB-SKILL:** `domain-modeling`. Name that skill in the background agent's brief, and tell it that quotations from a source keep their original wording.
 
 Its job:
 

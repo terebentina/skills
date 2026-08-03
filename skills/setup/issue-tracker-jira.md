@@ -30,7 +30,7 @@ Run `jira issue view <KEY> --comments 50`.
 
 ## Wayfinding operations
 
-Used by `/terebentina:wayfinder`. The **map** is a single epic with **child** issues as tickets.
+Used by `wayfinder`. The **map** is a single epic with **child** issues as tickets.
 
 - **Map**: a single epic labelled `wayfinder:map`, holding the Notes / Decisions-so-far / Fog body.
 - **Child ticket**: a ticket linked to the map as a sub-issue. Labels: `wayfinder:<type>` (`research`/`prototype`/`planning`/`task`). Once claimed, the ticket is assigned to the driving dev.

@@ -1,22 +1,20 @@
 ---
 name: implement
-description: Use when building the tickets of a spec/epic, or a single ticket, from the repo's issue tracker — the code-writing step after planning and ticketing. Invoked with an epic or ticket id.
-argument-hint: "<epic-id | ticket-id>"
-disable-model-invocation: true
+description: Build issue-tracker tickets from a spec, epic, or ticket. Use only when the user asks to implement work and provides its ID.
 ---
 
 # Implement
 
 You are the **orchestrator**. You do not write ticket code yourself. You drive the dependency **frontier** of a spec: dispatch one subagent per unblocked ticket into an isolated worktree, integrate each returned worktree back to the spec branch one commit at a time, **re-verify after every merge**, then recompute the frontier and repeat until it is empty.
 
-**REQUIRED SUB-SKILLS** (name them in each subagent's brief, and use them yourself):
-- **Write all prose in ASD-STE100 Simplified Technical English** — commit messages, code comments, subagent briefs, ticket comments, the PR body, and your messages to the user — via `/terebentina:domain-modeling`.
-- Subagents implement via superpowers:test-driven-development.
-- Worktree isolation via superpowers:using-git-worktrees.
-- Before claiming any ticket or the epic complete, superpowers:verification-before-completion.
-- Finish the branch via superpowers:finishing-a-development-branch.
+**Required methods** (include them in each subagent's brief, and use them yourself):
+- Use the `domain-modeling` skill for all prose.
+- Use test-driven development for each ticket.
+- Use one isolated Git worktree for each subagent.
+- Verify all required checks before you claim completion.
+- Ask the user before you push, open a pull request, or merge.
 
-All issue-tracker operations (frontier query, native blocking, claim, close) follow **the repo's tracker doc** — the same primitives the tracker doc documents for frontier/claim/blocking. The tracker should have been provided to you — run `/terebentina:setup` if not.
+All issue-tracker operations (frontier query, native blocking, claim, close) follow **the repo's tracker doc** — the same primitives the tracker doc documents for frontier/claim/blocking. The tracker should have been provided to you — run `setup` if not.
 
 ## 1. Explore
 
@@ -55,7 +53,7 @@ Repeat until no open `ready-for-agent` tickets remain:
 Each subagent receives:
 - The ticket body and the epic's goal, plus the **summaries and cross-cutting decisions** returned by upstream/sibling tickets already merged (parallel subagents cannot see each other's code — this prose is the only channel between them).
 - Its worktree base: the **current spec-branch HEAD**.
-- The rules: implement via TDD (write tests, watch them fail, implement, watch them pass); run lint + typecheck at the end and at a couple of checkpoints; respect ADRs and the domain glossary; write every comment, commit message, and returned summary in ASD-STE100 Simplified Technical English per `/terebentina:domain-modeling`.
+- The rules: implement via TDD (write tests, watch them fail, implement, watch them pass); run lint + typecheck at the end and at a couple of checkpoints; respect ADRs and the domain glossary; write every comment, commit message, and returned summary in ASD-STE100 Simplified Technical English per `domain-modeling`.
 - What to return: its worktree branch name, a short summary of the work, findings relevant to downstream tickets, and **any decision it made that a sibling might contradict**.
 
 ### Merge protocol
@@ -80,9 +78,10 @@ Behavior is conditional — match the situation, don't improvise a resolution:
 ## Finish
 
 When the frontier drains and every ready ticket is closed:
-1. Confirm the whole spec branch is green (superpowers:verification-before-completion).
-2. Hand off via superpowers:finishing-a-development-branch (push / PR / merge — the user's call). Do not push or open a PR unprompted.
-3. Report what landed and what did not (stopped or skipped tickets, and why).
+1. Confirm that the whole spec branch is green.
+2. Ask the user whether to push, open a pull request, merge, or keep the branch local.
+3. Do not push, open a pull request, or merge without the user's direction.
+4. Report what landed and what did not (stopped or skipped tickets, and why).
 
 If the run instead stops early (a failure or a pending ruling) with tickets still open, leave the spec branch intact with its landed commits, report what landed and what is blocked, and *offer* — never force — handing off the completed work. A later resume skips closed tickets, unless the user's ruling reopens one.
 
