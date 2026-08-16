@@ -1,6 +1,8 @@
 ---
 name: implement
 description: Build issue-tracker tickets from a spec, epic, or ticket. Use only when the user asks to implement work and provides its ID.
+argument-hint: "<epic-id | ticket-id>"
+disable-model-invocation: true
 ---
 
 # Implement

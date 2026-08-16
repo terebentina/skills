@@ -2,6 +2,7 @@
 name: lets-plan-code
 description: >-
   Plan session that integrates with the existing domain model, sharpens terminology, and updates documentation (CONTEXT.md, ADRs) inline as decisions crystallise.
+disable-model-invocation: true
 ---
 
 # Let's Plan Code

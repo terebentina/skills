@@ -1,6 +1,7 @@
 ---
 name: triage
 description: Move issues and external pull requests through triage roles. Use only when the user asks to triage work.
+disable-model-invocation: true
 ---
 
 # Triage

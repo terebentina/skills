@@ -1,6 +1,7 @@
 ---
 name: to-spec
-description: Turn the current conversation into a spec in the issue tracker. Use only when the user asks for a spec.
+description: Turn the conversation, plan, or completed Wayfinder effort into a spec in the issue tracker. Use only when the user asks for a spec.
+disable-model-invocation: true
 ---
 
 This skill takes the current conversation context and codebase understanding and produces a spec (you may know this document as a PRD). Do NOT interview the user — just synthesize what you already know.

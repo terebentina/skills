@@ -1,6 +1,7 @@
 ---
 name: setup
 description: Configure the issue tracker, triage labels, and domain docs for these engineering skills. Use only when the user asks for setup.
+disable-model-invocation: true
 ---
 
 # Setup Engineering Skills

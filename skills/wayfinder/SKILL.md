@@ -1,9 +1,10 @@
 ---
 name: wayfinder
 description: Map work that exceeds one agent session as decision tickets. Use only when the user asks to create or continue a wayfinder map.
+disable-model-invocation: true
 ---
 
-A loose idea has arrived — too big for one agent session, and wrapped in fog: the way from here to the **destination** isn't visible yet. Wayfinding is about finding that way, not charging at the destination. This skill charts the way as a **shared map** in local Markdown files, then works its **decision tickets** — questions whose resolution is a decision, not slices of a build to execute — one at a time until the route is clear.
+A loose idea has arrived — too big for one agent session and wrapped in fog: the way from here to the **destination** isn't visible yet. Wayfinding is about finding that way, not charging at the destination. This skill charts the way as a **shared map** in local Markdown files, then works its **decision tickets** — questions whose resolution is a decision, not slices of a build to execute — one at a time until the route is clear.
 
 **Write all prose in ASD-STE100 Simplified Technical English** — the map body, ticket questions, resolution comments, the Decisions-so-far gists, and your messages to the user. **REQUIRED SUB-SKILL:** `domain-modeling`. Name it in the brief of every research subagent you fire.
 

@@ -1,6 +1,8 @@
 ---
 name: handoff
 description: Create a handoff document for another agent. Use only when the user asks for a handoff.
+argument-hint: "What will the next session be used for?"
+disable-model-invocation: true
 ---
 
 Write a handoff document summarising the current conversation so a fresh agent can continue the work. Save to the temporary directory of the user's OS - not the current workspace.

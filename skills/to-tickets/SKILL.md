@@ -1,6 +1,7 @@
 ---
 name: to-tickets
 description: Split a plan or spec into tracer-bullet tickets with blocking edges. Use only when the user asks to create tickets.
+disable-model-invocation: true
 ---
 
 # To Tickets
