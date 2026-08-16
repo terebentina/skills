@@ -43,6 +43,14 @@ Leave these as they are:
 
 STE governs prose you author. It is not a licence to rewrite a file you were only asked to read.
 
+## Caller write boundaries
+
+A calling skill can restrict where this skill writes. Always apply the narrowest write boundary.
+
+When `wayfinder` calls this skill, use STE and read existing domain documents. Do not update `CONTEXT.md` or any ADR.
+
+Record each proposed glossary change or ADR as an implementation follow-up under the active Wayfinder effort.
+
 ## Words
 
 1. **One word, one meaning.** Pick the simplest correct word. Use that same word every time. Do not vary it for style.
@@ -126,6 +134,8 @@ Correct what fails. Then send the text.
 # Build the model
 
 Actively build and sharpen the project's domain model as you design. This is the *active* discipline — challenging terms, inventing edge-case scenarios, and writing the glossary and decisions down the moment they crystallise. (Merely *reading* `CONTEXT.md` for vocabulary is not this job — that's a one-line habit any skill can do. This job is for when you're changing the model, not just consuming it.)
+
+Skip all project file updates when a calling skill sets a narrower write boundary. Use that skill's deferred record process instead.
 
 ## File structure
 

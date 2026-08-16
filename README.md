@@ -27,12 +27,6 @@ claude plugins marketplace add terebentina/skills
 npx skills@latest add terebentina/skills
 ```
 
-## Validate changes
-
-```bash
-python3 check_skills.py
-```
-
 ## Thanks
 
 Thanks to [Matt Pocock](https://github.com/mattpocock) for his teaching and original skills.

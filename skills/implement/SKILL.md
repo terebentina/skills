@@ -1,6 +1,6 @@
 ---
 name: implement
-description: Build issue-tracker tickets from a spec, epic, or ticket. Use only when the user asks to implement work and provides its ID.
+description: Build ready-for-agent tickets from a spec, epic, or ticket ID. Use the ticket state and context regardless of who created it.
 argument-hint: "<epic-id | ticket-id>"
 disable-model-invocation: true
 ---
@@ -57,6 +57,11 @@ Each subagent receives:
 - Its worktree base: the **current spec-branch HEAD**.
 - The rules: implement via TDD (write tests, watch them fail, implement, watch them pass); run lint + typecheck at the end and at a couple of checkpoints; respect ADRs and the domain glossary; write every comment, commit message, and returned summary in ASD-STE100 Simplified Technical English per `domain-modeling`.
 - What to return: its worktree branch name, a short summary of the work, findings relevant to downstream tickets, and **any decision it made that a sibling might contradict**.
+- Any project record that the ticket must create. This list can include ADRs and glossary updates.
+
+Create each required project record in the same ticket that first implements its decision. Use `domain-modeling` for ADR and glossary rules.
+
+Do not alter an existing ADR unless the implementation ticket explicitly requires that change. Make each new ADR self-contained.
 
 ### Merge protocol
 

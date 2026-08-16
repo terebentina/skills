@@ -1,6 +1,6 @@
 interface:
   display_name: "Wayfinder"
-  short_description: "Map a large effort as decision tickets"
-  default_prompt: "Use $wayfinder to map this large effort as decision tickets."
+  short_description: "Explore an effort in local decision files"
+  default_prompt: "Use $wayfinder to explore this effort under .scratch/wayfinder only."
 policy:
   allow_implicit_invocation: false

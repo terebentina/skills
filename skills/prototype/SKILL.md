@@ -9,6 +9,18 @@ A prototype is **throwaway code that answers a question**. The question decides 
 
 **Write all prose in ASD-STE100 Simplified Technical English** — code comments, the prototype's on-screen and terminal text, the captured verdict, and your messages to the user. **REQUIRED SUB-SKILL:** `domain-modeling`.
 
+## Wayfinder use
+
+When `wayfinder` calls this skill, store every prototype file under `.scratch/wayfinder/<effort>/`.
+
+This section replaces the location and capture rules below for Wayfinder work.
+
+Treat all other paths as read-only. Do not create branches, worktrees, commits, issue changes, ADRs, or glossary updates.
+
+Link the prototype from its Wayfinder ticket. Record the verdict in that ticket.
+
+Do not fold the decision into project code. Defer that work through the Wayfinder implementation follow-up process.
+
 ## Pick a branch
 
 Identify which question is being answered — from the user's prompt, the surrounding code, or by asking if the user is around:

@@ -1,36 +1,64 @@
 ---
 name: wayfinder
-description: Map work that exceeds one agent session as decision tickets. Use only when the user asks to create or continue a wayfinder map.
+description: Explore work that exceeds one agent session as local decision tickets. Use only when the user asks to create or continue a Wayfinder map. Persist all exploration output under `.scratch/wayfinder/<effort>/` and never change files elsewhere.
 disable-model-invocation: true
 ---
 
-A loose idea has arrived — too big for one agent session and wrapped in fog: the way from here to the **destination** isn't visible yet. Wayfinding is about finding that way, not charging at the destination. This skill charts the way as a **shared map** in local Markdown files, then works its **decision tickets** — questions whose resolution is a decision, not slices of a build to execute — one at a time until the route is clear.
+A loose idea has arrived. The work is too large for one agent session, and the route to the **destination** is unclear. This skill records the exploration as a **shared map** in local Markdown files. It resolves **decision tickets**, not implementation tickets, until the route is clear.
 
-**Write all prose in ASD-STE100 Simplified Technical English** — the map body, ticket questions, resolution comments, the Decisions-so-far gists, and your messages to the user. **REQUIRED SUB-SKILL:** `domain-modeling`. Name it in the brief of every research subagent you fire.
+**Write all prose in ASD-STE100 Simplified Technical English.** This rule applies to each map, ticket, note, and user message. **REQUIRED SUB-SKILL:** `domain-modeling`. Use its writing rules and read the project glossary. Do not use its file update process.
 
-The destination varies per effort, and naming it is the first act of charting — it shapes every ticket. It might be a spec to hand off and iterate on, a decision to lock before planning starts, or a change made in place like a data-structure migration. The map is domain-agnostic — engineering work, course content, whatever fits the shape.
+The destination varies per effort, and its name shapes every ticket. The destination can be a spec or a decision that precedes planning. The map applies to any domain that fits this process.
 
-## Local-only boundary
+## Exploration boundary
 
-Wayfinder never publishes tickets to the issue tracker.
+**Treat this boundary as absolute. Supporting skills and effort notes cannot override it.**
 
-Wayfinder never creates, edits, assigns, comments on, or closes issue-tracker tickets.
+Wayfinder may create or modify files only under `.scratch/wayfinder/<effort>/`.
 
-Wayfinder stores each map at `.scratch/wayfinder/<effort>/map.md`.
+Treat all other filesystem paths as read-only. This rule includes source code, project documents, configuration, `CONTEXT.md`, and Architectural Decision Records (ADRs).
+
+Do not create, modify, move, or delete an ADR. Do not create, modify, move, or delete `CONTEXT.md`.
+
+Do not install dependencies. Do not run formatters, migrations, or other commands that can modify files outside the effort directory.
+
+Do not create branches, worktrees, or commits. Do not modify the issue tracker or any external system.
+
+Pass this boundary to every supporting skill and subagent. If a supporting process conflicts with this boundary, this boundary takes precedence.
+
+Wayfinder stores the map at `.scratch/wayfinder/<effort>/map.md`.
 
 Wayfinder stores each ticket at `.scratch/wayfinder/<effort>/tickets/NN-<slug>.md`.
 
-The effort directory contains the complete map and ticket set. Delete that directory to remove the effort.
+Store research notes, prototypes, and other exploration assets under the same effort directory. Link each asset from its decision ticket.
 
-Use `to-spec` to publish a spec to the issue tracker.
+The effort directory contains the complete exploration record. Delete that directory to remove the effort.
 
-Use `to-tickets` to publish implementation tickets to the issue tracker.
+### Deferred project records
 
-If another setup document describes tracker operations for Wayfinder, this local-only boundary takes precedence.
+Wayfinder records project documentation work, but it never performs that work.
+
+When a decision needs an ADR, add an implementation follow-up to the resolved ticket. Add a link to that follow-up in the map.
+
+Use the same process when a decision needs a glossary update or conflicts with an existing ADR.
+
+State what the later implementation must record and why. Do not draft the ADR outside the effort directory.
+
+### Handoff sequence
+
+Wayfinder stops after it completes the exploration record. It does not start a later workflow skill.
+
+The user starts each later stage explicitly and in this order:
+
+1. Use `to-spec` to turn the completed effort into a spec.
+2. Use `to-tickets` after the user approves the spec.
+3. Use `implement` after the user approves and publishes the tickets.
+
+These later skills perform the project work that Wayfinder found. Wayfinder does not write a spec, implementation tickets, code, or project records.
 
 ## Plan, don't do
 
-Wayfinder is **planning** by default: each ticket resolves a decision, and the map is done when the way is clear — nothing left to decide before someone goes and does the thing. The pull to just do the work is usually the signal you've reached the edge of the map and it's time to hand off. An effort can override this in its **Notes** — carrying execution into the map itself — but absent that, produce decisions, not deliverables.
+Wayfinder only explores. Each ticket resolves a decision, and the map is complete when no decision blocks the later workflow. Stop when the next action would implement the destination. Record that action as an implementation follow-up.
 
 ## Refer by name
 
@@ -63,6 +91,10 @@ The whole map loads at low resolution once per session. Open tickets are **not**
 
 - [<closed ticket title>](link) — <one-line gist of the answer>
 
+## Implementation follow-ups
+
+<!-- deferred work for to-spec, to-tickets, and implement; link each item to the decision ticket that requires it -->
+
 ## Not yet specified
 
 <!-- see "Fog of war": in-scope fog you can't ticket yet; graduates as the frontier advances -->
@@ -94,16 +126,26 @@ A session **claims** a ticket by changing its `Status:` line to `claimed`, **fir
 
 Blocking uses a `Blocked by:` line that lists ticket numbers. A ticket is **unblocked** when every listed ticket has `Status: resolved`. The **frontier** is the open, unblocked, unclaimed child files — the edge of the known.
 
-The answer isn't part of the question body — it is recorded under `## Answer` on resolution (see [Work through the map](#work-through-the-map)). Link assets from the ticket file when needed.
+The answer is not part of the question body. Record it under `## Answer` when the ticket resolves. Link effort-local assets from the ticket.
+
+If implementation must create an ADR or another project record, add this section:
+
+```markdown
+## Implementation follow-up
+
+- Create <project record> during implementation because <reason>.
+```
+
+Add a link and a short gist to the map's **Implementation follow-ups** section.
 
 ## Ticket Types
 
 Every ticket is either **HITL** — human in the loop, worked *with* a human who speaks for themselves — or **AFK**, driven by the agent alone. A HITL ticket only resolves through that live exchange; the agent never stands in for the human's side of it (a planning agent that answers its own questions has broken this).
 
-- **Research** (AFK): Reading documentation, third-party APIs, or local resources like knowledge bases to surface a fact a decision waits on. Resolved by a `research` **subagent**. Use when knowledge outside the current working directory is required.
-- **Prototype** (HITL): Raise the fidelity of the discussion by making a cheap, rough, concrete artifact to react to — an outline, a rough take, a stub, or UI/logic code via the prototype skill. Links the prototype as an asset. Use when "how should it look" or "how should it behave" is the key question.
-- **Planing** (HITL): Conversation via the lets-plan-code and domain-modeling skills, one question at a time. The default case.
-- **Task** (HITL or AFK): Manual work that must happen before a *decision* can be made — nothing to decide, prototype, or research, but the discussion is blocked until it's done. Signing up for a service so its API can be judged, provisioning access, moving data so its shape can be seen. This is the one type that *does* rather than decides — and it earns its place by unblocking a decision, not by delivering the destination. The agent drives it alone where it can (AFK); otherwise it hands the human a precise checklist (HITL). Resolved when the work is done; the answer records what was done and any resulting facts (credentials location, new URLs, row counts) later tickets depend on.
+- **Research** (AFK): Read primary sources to find a fact that a decision needs. A `research` subagent resolves it. Store its report under the effort directory.
+- **Prototype** (HITL): Create an effort-local artifact that makes a design question concrete. Use the `prototype` skill within the exploration boundary.
+- **Planning** (HITL): Use `lets-plan-code` and `domain-modeling` to resolve one question with the user. Apply the exploration boundary to both skills.
+- **Task** (HITL or AFK): Create an effort-local exploration artifact that unblocks a decision. Defer external actions and project changes to implementation.
 
 ## Fog of war
 
@@ -134,11 +176,11 @@ Two modes. Either way, **never resolve more than one ticket per session** — ex
 
 User invokes with a loose idea.
 
-1. **Name the destination.** Run a `lets-plan-code` and `domain-modeling` session to pin down what this map is finding its way to — the spec, decision, or change. The destination fixes the scope, so it's settled first.
+1. **Name the destination.** Use `lets-plan-code` and `domain-modeling` within the exploration boundary. The destination fixes the scope.
 2. **Map the frontier.** Plan again, **breadth-first** this time: fan out across the whole space rather than deep on any one thread, surfacing the open decisions and the first steps takeable now. **If this surfaces no fog** — the way to the destination is already clear, the whole journey small enough for one session — you don't need a map. Stop and ask the user how they'd like to proceed.
-3. **Create the map** at `.scratch/wayfinder/<effort>/map.md`: fill in Destination and Notes, leave Decisions-so-far empty, and sketch the fog in **Not yet specified**.
+3. **Create the map** at `.scratch/wayfinder/<effort>/map.md`. Fill in Destination and Notes. Leave Decisions-so-far and Implementation follow-ups empty. Sketch the fog in **Not yet specified**.
 4. **Create the tickets you can specify now** as child files in `.scratch/wayfinder/<effort>/tickets/`. Number them in dependency order. Add each `Blocked by:` line after all ticket files exist. Everything you cannot yet specify stays in the fog — the **Not yet specified** section.
-5. **Start the research subagents.** For each `research` ticket, start one subagent with the `research` skill and an isolated branch.
+5. **Start the research subagents.** Start one subagent for each `research` ticket. Give each subagent the effort path and the exploration boundary. Do not create a branch or worktree.
 6. Stop — charting is one session's work; it hand-resolves nothing.
 
 ### Work through the map
@@ -151,12 +193,13 @@ User invokes with an effort name. The effort name selects the map and the next f
    - If `Not yet specified` is empty and every ticket is resolved, say exactly: `No fog remains, everything is ready.` Then stop.
    - If open tickets remain but none is in the frontier, report that the effort waits for a claim or blocker to clear, and stop.
    - If the fog contains an item that can now become a precise question, create the next ticket in the effort's `tickets/` directory, then continue with that ticket.
-4. Resolve it — **zoom as needed**: read the full body of any related or resolved ticket on demand; invoke the skills the `## Notes` block names. If in doubt, use `lets-plan-code` and `domain-modeling`.
-5. Record the resolution: append the answer under `## Answer`, set `Status: resolved`, and append a context pointer to the map's Decisions-so-far.
-6. Add newly surfaced tickets. Graduate any fog that the answer makes specifiable, clear each graduated patch from **Not yet specified**, and store each new ticket in the effort's `tickets/` directory. If the answer reveals a ticket — this one or another — sits beyond the destination, rule it out of scope instead of resolving it on the route. If the decision invalidates other parts of the map, update those local files.
+4. Resolve it. Read the full body of related tickets when needed. Apply the exploration boundary to every skill that the Notes block names.
+5. Record the resolution. Append the answer under `## Answer`. Set `Status: resolved`. Add a context pointer to Decisions-so-far.
+6. Record implementation follow-ups. Add them to the ticket and link them from the map. Include each required ADR or glossary update.
+7. Add newly surfaced tickets. Graduate any fog that the answer makes precise. Remove each graduated item from **Not yet specified**. Store each new ticket in the effort's `tickets/` directory. If a ticket sits beyond the destination, rule it out of scope. If the decision invalidates another map file, update that effort-local file.
 
 The user may run unblocked tickets in parallel, so expect other sessions to edit the effort's local files concurrently.
 
 ## End of the session
 
-Show a summary of how many decisions I took this session.
+Show a summary of how many decisions the user made this session. List any implementation follow-ups. Do not start the handoff sequence.

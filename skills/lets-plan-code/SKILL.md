@@ -11,6 +11,16 @@ Run a planning session, using the `domain-modeling` skill.
 
 **Write all prose in ASD-STE100 Simplified Technical English** — the plan bullets, your questions, the `CONTEXT.md` and ADR updates, and your messages to the user. The `domain-modeling` skill above gives the rules.
 
+## Wayfinder use
+
+When `wayfinder` calls this skill, apply the active effort's exploration boundary.
+
+Write only under `.scratch/wayfinder/<effort>/`. Do not modify `CONTEXT.md`, ADRs, source files, issue trackers, branches, worktrees, or commits.
+
+Record a required glossary update or ADR as an implementation follow-up in the active Wayfinder ticket and map.
+
+Return the plan to Wayfinder for storage. Do not create a separate project plan.
+
 <what-to-do>
 1. Interview the user relentlessly about every aspect of this plan.
 2. Ask one concise question at a time. Use the host's user-input tool when it is available.

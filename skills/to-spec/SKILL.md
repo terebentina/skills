@@ -6,19 +6,25 @@ disable-model-invocation: true
 
 This skill takes the current conversation context and codebase understanding and produces a spec (you may know this document as a PRD). Do NOT interview the user — just synthesize what you already know.
 
+For a completed Wayfinder effort, this skill is the first handoff stage. Run it only when the user explicitly requests a spec.
+
 The issue tracker and triage label vocabulary should have been provided to you — run `setup` if not.
 
 **Write all prose in ASD-STE100 Simplified Technical English** — every section of the spec, including the user stories, and your messages to the user. **REQUIRED SUB-SKILL:** `domain-modeling`.
 
 ## Process
 
-1. Explore the repo to understand the current state of the codebase, if you haven't already. Use the project's domain glossary vocabulary throughout the spec, and respect any ADRs in the area you're touching.
+1. If the source is a Wayfinder effort, read its map, resolved tickets, linked notes, and exploration assets. Treat the effort as read-only. Stop if fog or unresolved tickets remain.
 
-2. Sketch out the seams at which you're going to test the feature. Existing seams should be preferred to new ones. Use the highest seam possible. If new seams are needed, propose them at the highest point you can. The fewer seams across the codebase, the better - the ideal number is one.
+2. Explore the repo to understand the current state of the codebase, if you haven't already. Use the project's domain glossary vocabulary throughout the spec, and respect any ADRs in the area you're touching.
+
+3. Sketch the seams where tests will exercise the feature. Prefer existing seams to new seams. Use the highest seam possible. Propose each required seam at the highest useful point. Prefer one seam when one seam can cover the behavior.
 
 Check with the user that these seams match their expectations.
 
-3. Write the spec using the template below, then publish it to the project issue tracker as an epic, not as a regular issue.
+4. Carry every Wayfinder implementation follow-up into the spec. Put required ADRs and glossary updates under **Project records to create**.
+
+5. Write the spec using the template below, then publish it to the project issue tracker as an epic, not as a regular issue.
 
 <spec-template>
 
@@ -54,6 +60,12 @@ A list of implementation decisions that were made. This can include:
 - API contracts
 - Specific interactions
 
+### Project records to create
+
+List each ADR, glossary update, or other project record that implementation must create. Name its source Wayfinder decision.
+
+Do not create these project records during `to-spec`.
+
 Do NOT include specific file paths or code snippets. They may end up being outdated very quickly.
 
 Exception: if a prototype produced a snippet that encodes a decision more precisely than prose can (state machine, reducer, schema, type shape), inline it within the relevant decision and note briefly that it came from a prototype. Trim to the decision-rich parts — not a working demo, just the important bits.
@@ -75,3 +87,5 @@ A description of the things that are out of scope for this spec.
 Any further notes about the feature.
 
 </spec-template>
+
+After the user approves the spec, stop. The user invokes `to-tickets` for the next stage.

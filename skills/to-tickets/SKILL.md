@@ -8,6 +8,8 @@ disable-model-invocation: true
 
 Break a plan, spec, or conversation into a set of **tickets** — tracer-bullet vertical slices, each declaring the tickets that **block** it.
 
+For a Wayfinder handoff, this skill is the second stage. Run it after the user approves the spec and requests implementation tickets.
+
 The issue tracker and triage label vocabulary should have been provided to you — run `setup` if not.
 
 **Write all prose in ASD-STE100 Simplified Technical English** — ticket titles, ticket bodies, acceptance criteria, and your messages to the user. **REQUIRED SUB-SKILL:** `domain-modeling`.
@@ -17,6 +19,8 @@ The issue tracker and triage label vocabulary should have been provided to you �
 ### 1. Gather context
 
 Work from whatever is already in the conversation context. If the user passes a reference (a spec path, an issue number or URL) as an argument, fetch it and read its full body and comments.
+
+Read the spec's **Project records to create** section. Keep each deferred record linked to its source decision.
 
 ### 2. Explore the codebase (optional)
 
@@ -36,6 +40,10 @@ Break the work into **tracer bullet** tickets.
 </vertical-slice-rules>
 
 Give each ticket its **blocking edges** — the other tickets that must complete before it can start. A ticket with no blockers can start immediately.
+
+Assign each deferred project record to the earliest ticket that implements its decision. Add its creation as the first acceptance criterion.
+
+Do not create or modify the deferred project record during `to-tickets`.
 
 **Wide refactors are the exception to vertical slicing.** A **wide refactor** is one mechanical change — rename a column, retype a shared symbol — whose **blast radius** fans across the whole codebase, so a single edit breaks thousands of call sites at once and no vertical slice can land green. Don't force it into a tracer bullet; sequence it as **expand–contract**. First expand: add the new form beside the old so nothing breaks. Then migrate the call sites over in batches sized by blast radius (per package, per directory), each batch its own ticket blocked by the expand, keeping CI green batch to batch because the old form still exists. Finally contract: delete the old form once no caller remains, in a ticket blocked by every migrate batch. When even the batches can't stay green alone, keep the sequence but let them share an integration branch that all block a final integrate-and-verify ticket — green is promised only there.
 
@@ -103,3 +111,5 @@ The end-to-end behaviour this ticket makes work, from the user's perspective —
 </issue-template>
 
 In either form, avoid specific file paths or code snippets — they go stale fast. Exception: if a prototype produced a snippet that encodes a decision more precisely than prose can (state machine, reducer, schema, type shape), inline it and note briefly that it came from a prototype. Trim to the decision-rich parts — not a working demo, just the important bits.
+
+After the user approves and publishes the tickets, stop. The user invokes `implement` for the next stage.
