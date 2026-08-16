@@ -2,5 +2,3 @@ interface:
   display_name: "Let's plan code"
   short_description: "Plan a coding feature using domain language"
   default_prompt: "Use $lets-plan-code to plan this feature with me."
-policy:
-  allow_implicit_invocation: false
