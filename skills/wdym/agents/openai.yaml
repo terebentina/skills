@@ -2,3 +2,5 @@ interface:
   display_name: "wdym"
   short_description: "Explain terms to the user with concrete examples."
   default_prompt: "Use $wdym to explain concepts, terms or reformulate a question that has been asked in simpler terms."
+policy:
+  allow_implicit_invocation: false
