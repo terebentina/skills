@@ -1,14 +1,10 @@
-# Writing Agent Briefs
+# Writing agent briefs
 
-An agent brief is a structured comment posted on a GitHub issue or PR when it moves to `ready-for-agent`. It is the authoritative specification that an AFK agent will work from. The original body and discussion are context — the agent brief is the contract.
+An agent brief is the authoritative specification posted when an issue or PR moves to `ready-for-agent`. The original body and discussion provide context.
 
-The brief states **what the agent should do**, which stretches to both surfaces: for an issue, that's building the change from nothing; for a PR, it's what's left to do *to the existing diff* — finish it, close gaps, address review points. Same principles either way; the PR example below shows the difference.
+For an issue, the brief defines the change to build. For a PR, it defines the work left on the existing diff. The same principles apply to both.
 
 ## Principles
-
-### Simplified Technical English
-
-Write the whole brief in ASD-STE100 Simplified Technical English, per `domain-modeling`. The brief is a contract read by an agent days or weeks later, so ambiguity is expensive. Short active sentences, one instruction each, and one word per meaning. Type names, function names, and glossary terms are technical names — keep them exact.
 
 ### Durability over precision
 
@@ -16,7 +12,7 @@ The issue may sit in `ready-for-agent` for days or weeks. The codebase will chan
 
 - **Do** describe interfaces, types, and behavioral contracts
 - **Do** name specific types, function signatures, or config shapes that the agent should look for or modify
-- **Don't** reference file paths — they go stale
+- **Don't** reference file paths. They go stale
 - **Don't** reference line numbers
 - **Don't** assume the current implementation structure will remain the same
 
@@ -38,7 +34,7 @@ The agent needs to know when it's done. Every agent brief must have concrete, te
 
 ### Explicit scope boundaries
 
-State what is out of scope. This prevents the agent from gold-plating or making assumptions about adjacent features.
+State what is out of scope. This prevents unrequested adjacent work and assumptions about related features.
 
 ## Template
 
@@ -84,7 +80,7 @@ Be specific about edge cases and error conditions.
 **Current behavior:**
 When a skill description exceeds 1024 characters, it is truncated at exactly
 1024 characters regardless of word boundaries. This produces descriptions
-that end mid-word (e.g. "Use when the user wants to confi").
+that end mid-word, for example, "Use when the user wants to confi".
 
 **Desired behavior:**
 Truncation should break at the last word boundary before 1024 characters

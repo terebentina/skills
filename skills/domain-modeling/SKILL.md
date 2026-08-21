@@ -1,38 +1,40 @@
 ---
 name: domain-modeling
-description: Use when writing any prose — code comments, commit and PR messages, ADRs, CONTEXT.md, specs, tickets, triage comments, plans, reports, research notes, subagent briefs, or replies to the user. Also use when the user wants to pin down domain terminology or a ubiquitous language, or to record an architectural decision. Gives the ASD-STE100 Simplified Technical English rules that every other skill in this collection requires.
+description: Use when the user wants to define or sharpen domain terminology, maintain a ubiquitous language in CONTEXT.md, or record an architectural decision. Applies ASD-STE100 Simplified Technical English only to direct conversation with the user while this skill runs.
 ---
 
-# Domain Modeling
+# Domain modeling
 
-This skill owns the project's language. It does two jobs:
+This skill owns the project's domain language. It does two jobs:
 
-- **Write in STE** — the ASD-STE100 rules for every word of prose you write. This job applies to every session.
-- **Build the model** — challenge and sharpen the project's terms, then record them in `CONTEXT.md` and the decisions behind them in ADRs. This job applies when you change the model.
+- **Talk to the user in STE.** Apply ASD-STE100 to direct user conversation while this skill runs.
+- **Build the model.** Challenge and sharpen the project's terms, then record them in `CONTEXT.md` and the decisions behind them in ADRs. This job applies when you change the model.
 
-The two jobs share one list of domain terms. `CONTEXT.md` holds that list, and it is the only file that defines a domain term. "Build the model" decides what goes in it. "Write in STE" keeps each entry exact.
+The two jobs share one list of domain terms. `CONTEXT.md` holds that list, and it is the only file that defines a domain term. "Build the model" decides what goes in it. "Talk to the user in STE" uses those terms in conversation.
 
 ---
 
-# Write in STE
+# Talk to the user in STE
 
-Write all prose in **ASD-STE100 Simplified Technical English (STE)**. STE is a controlled English standard. It has a dictionary of approved words and a set of writing rules. It makes text unambiguous for readers, translators, and agents.
+Write direct conversational replies to the user in **ASD-STE100 Simplified Technical English (STE)** while this skill runs. This includes status updates, questions, summaries, and final replies.
 
 You do not have the STE dictionary here. Apply the writing rules as a discipline: choose the simplest common word for each meaning, then keep to that one word.
 
-## Scope
+## Scope: user conversation only
 
-STE applies to every word of prose you write:
+Do not apply STE to saved artifacts. Do not apply STE to messages for agents or developers. This includes:
 
-- Code comments, docstrings, and log messages
-- Commit messages, PR titles, and PR bodies
+- Code comments, docstrings, log messages, product copy, and terminal text
+- Commit messages, pull request titles, and pull request bodies
 - ADRs, `CONTEXT.md`, specs, tickets, triage comments, and handoff documents
-- Reports, plans, research notes, and briefs for subagents
-- Your messages to the user
+- Wayfinder maps, Wayfinder tickets, reports, plans, and research notes
+- Briefs, instructions, summaries, or other messages for agents
 
-**Pass the rule on.** When you dispatch a subagent that writes prose, name this skill in its brief.
+Do not put an STE requirement in an agent brief.
 
-## What STE does not change
+An artifact does not become user conversation when you paste or preview it in a reply. Apply STE only to the surrounding conversation.
+
+## What STE does not change in a reply
 
 Leave these as they are:
 
@@ -41,13 +43,13 @@ Leave these as they are:
 - Text you quote from the user, a source, or an existing file
 - Error strings that must match a known value
 
-STE governs prose you author. It is not a licence to rewrite a file you were only asked to read.
+STE governs only the conversational prose that you author for the user.
 
 ## Caller write boundaries
 
 A calling skill can restrict where this skill writes. Always apply the narrowest write boundary.
 
-When `wayfinder` calls this skill, use STE and read existing domain documents. Do not update `CONTEXT.md` or any ADR.
+When `wayfinder` calls this skill, use STE only in direct replies to the user. Read existing domain documents, but do not update `CONTEXT.md` or any ADR.
 
 Record each proposed glossary change or ADR as an implementation follow-up under the active Wayfinder effort.
 
@@ -67,7 +69,7 @@ Record each proposed glossary change or ADR as an implementation follow-up under
 9. **One instruction per sentence.** If a sentence holds two instructions, write two sentences.
 10. **Use the active voice.** Write "the test catches the bug", not "the bug is caught by the test".
 11. **Use the imperative for an instruction.** Write "Run the tests", not "the tests should be run".
-12. **Use a simple tense** — simple present, simple past, or simple future.
+12. **Use a simple tense.** Use simple present, simple past, or simple future.
 13. **Start a sentence with its topic.** Keep the subject next to its verb.
 14. **Do not drop a word to save space.** Keep "that" and "which". Write "confirm that the branch is green", not "confirm the branch is green".
 
@@ -79,11 +81,11 @@ Record each proposed glossary change or ADR as an implementation follow-up under
 
 ## Technical names
 
-STE permits technical names and technical verbs. A glossary fixes their meaning, so they do not break rule 1 or rule 2.
+STE permits technical names and technical verbs in user replies. A glossary fixes their meaning, so they do not break rule 1 or rule 2.
 
 A word is a technical name only when a glossary defines it. Three glossaries can define one:
 
-- **The repo's `CONTEXT.md`** — the project's domain terms. "Build the model" below maintains this file, and it is the only list of domain terms. A term's `_Avoid_` list names the synonyms that rule 1 forbids.
+- **The repo's `CONTEXT.md`.** This file owns the project's domain terms. "Build the model" below maintains it. A term's `_Avoid_` list names the synonyms that rule 1 forbids.
 - **The glossary of a skill you run under.** The `codebase-design` glossary holds the architecture terms. A skill can also define its own named concepts in its own text.
 - **Product, library, tool, and API names.**
 
@@ -107,7 +109,7 @@ A word that no glossary defines is ordinary prose. Rule 1 and rule 2 apply to it
 
 ## Self-check
 
-Read the text again before you send or save it:
+Read each user reply again before you send it:
 
 - [ ] Is every sentence 20 words or fewer (25 for a description)?
 - [ ] Is every sentence active and in a simple tense?
@@ -118,11 +120,12 @@ Read the text again before you send or save it:
 - [ ] Is every paragraph six sentences or fewer?
 - [ ] Does a glossary define every technical name you used?
 
-Correct what fails. Then send the text.
+Correct what fails. Then send the reply.
 
 ## Common mistakes
 
-- **Applying STE only to documents.** Chat replies and code comments are prose. They count.
+- **Applying STE to artifacts.** The rule applies only to direct user conversation. It does not apply to saved files or agent messages.
+- **Passing STE to an agent.** Do not add this writing restriction to an agent brief or handoff.
 - **Flattening a technical name.** "Seam" and "interface" stay. Simplify the words around them.
 - **Rewriting quoted text.** A quotation keeps its original wording.
 - **Trading one long sentence for one long fragment.** Split the sentence. Do not delete "that" or an article to reach 20 words.
@@ -133,7 +136,11 @@ Correct what fails. Then send the text.
 
 # Build the model
 
-Actively build and sharpen the project's domain model as you design. This is the *active* discipline — challenging terms, inventing edge-case scenarios, and writing the glossary and decisions down the moment they crystallise. (Merely *reading* `CONTEXT.md` for vocabulary is not this job — that's a one-line habit any skill can do. This job is for when you're changing the model, not just consuming it.)
+Build and sharpen the project's domain model while you design. Challenge terms, test relationships with edge cases, and record each resolved term or decision.
+
+Reading `CONTEXT.md` for project vocabulary is not domain modeling. Use this process only when the model changes.
+
+The STE rule does not apply to domain records.
 
 Skip all project file updates when a calling skill sets a narrower write boundary. Use that skill's deferred record process instead.
 
@@ -167,38 +174,32 @@ If a `CONTEXT-MAP.md` exists at the root, the repo has multiple contexts. The ma
 │       └── docs/adr/
 ```
 
-Create files lazily — only when you have something to write. If no `CONTEXT.md` exists, create one when the first term is resolved. If no `docs/adr/` exists, create it when the first ADR is needed.
+Create each file only when you have something to write. Create `CONTEXT.md` when the first term is resolved. Create `docs/adr/` when the first ADR is needed.
 
 ## During the session
 
 ### Challenge against the glossary
 
-When the user uses a term that conflicts with the existing language in `CONTEXT.md`, call it out immediately. "Your glossary defines 'cancellation' as X, but you seem to mean Y — which is it?"
+When the user uses a term that conflicts with the existing language in `CONTEXT.md`, call it out immediately. "Your glossary defines 'cancellation' as X, but you seem to mean Y. Which is it?"
 
 ### Sharpen fuzzy language
 
-When the user uses vague or overloaded terms, propose a precise canonical term. "You're saying 'account' — do you mean the Customer or the User? Those are different things."
+When the user uses vague or overloaded terms, propose a precise canonical term. "When you say 'account', do you mean the Customer or the User? Those are different things."
 
 ### Discuss concrete scenarios
 
-When domain relationships are being discussed, stress-test them with specific scenarios. Invent scenarios that probe edge cases and force the user to be precise about the boundaries between concepts.
+When you discuss domain relationships, stress-test them with specific scenarios. Invent edge cases that force precise boundaries between concepts.
 
 ### Cross-reference with code
 
-When the user states how something works, check whether the code agrees. If you find a contradiction, surface it: "Your code cancels entire Orders, but you just said partial cancellation is possible — which is right?"
+When the user states how something works, check whether the code agrees. If you find a contradiction, surface it: "Your code cancels entire Orders, but you just said partial cancellation is possible. Which is right?"
 
 ### Update CONTEXT.md inline
 
-When a term is resolved, update `CONTEXT.md` right there. Don't batch these up — capture them as they happen. Use the format in [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md).
+When a term is resolved, update `CONTEXT.md` immediately. Use the format in [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md).
 
-`CONTEXT.md` should be totally devoid of implementation details. Do not treat `CONTEXT.md` as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.
+Do not include implementation details in `CONTEXT.md`. It is a glossary, not a spec, scratch pad, or record of implementation decisions.
 
 ### Offer ADRs sparingly
 
-Only offer to create an ADR when all three are true:
-
-1. **Hard to reverse** — the cost of changing your mind later is meaningful
-2. **Surprising without context** — a future reader will wonder "why did they do it this way?"
-3. **The result of a real trade-off** — there were genuine alternatives and you picked one for specific reasons
-
-If any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](./ADR-FORMAT.md).
+Use [ADR-FORMAT.md](./ADR-FORMAT.md) to decide whether a decision needs an ADR and to write it.

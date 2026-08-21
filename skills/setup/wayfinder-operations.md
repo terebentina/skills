@@ -1,4 +1,4 @@
-# Wayfinder Operations
+# Wayfinder operations
 
 The `wayfinder` skill may create or modify files only under `.scratch/wayfinder/<effort>/`.
 
@@ -12,7 +12,7 @@ The **map** is a file with one **child** file per ticket.
 
 ## Wayfinder files and file types
 
-- **Map**: `.scratch/wayfinder/<effort>/map.md` — the destination, notes, decisions, implementation follow-ups, fog, and scope.
+- **Map**: `.scratch/wayfinder/<effort>/map.md`. The destination, notes, decisions, implementation follow-ups, fog, and scope.
 - **Child ticket**: `.scratch/wayfinder/<effort>/tickets/NN-<slug>.md`, numbered from `01`, with the question in the body. A `Type:` line records the ticket type (`research`/`prototype`/`planning`/`task`). A `Status:` line records `open`, `claimed`, or `resolved`.
 - **Blocking**: a `Blocked by: NN, NN` line near the top. A ticket is unblocked when every file it lists is `resolved`.
 - **Frontier**: scan `.scratch/wayfinder/<effort>/tickets/` for files that are open, unblocked, and unclaimed; first by number wins.

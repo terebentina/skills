@@ -1,4 +1,4 @@
-# Terebentina Agent Skills
+# Terebentina agent skills
 
 This repository contains reusable skills for planning, research, design, diagnosis, and delivery.
 Most skills started from Matt Pocock's work and include changes for this workflow.

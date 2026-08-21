@@ -1,4 +1,4 @@
-# CONTEXT.md Format
+# CONTEXT.md format
 
 ## Structure
 
@@ -24,7 +24,7 @@ _Avoid_: Client, buyer, account
 
 ## Rules
 
-- **Write it in ASD-STE100 Simplified Technical English**, per the "Write in STE" section of [SKILL.md](./SKILL.md). Each definition is one or two short active sentences. The defined term itself is a technical name — never simplify it, and never give it a synonym outside the `_Avoid_` list.
+- **Keep definitions direct.** The defined term is a technical name. Never simplify it or give it a synonym outside the `_Avoid_` list.
 - **Be opinionated.** When multiple words exist for the same concept, pick the best one and list the others under `_Avoid_`.
 - **Keep definitions tight.** One or two sentences max. Define what it IS, not what it does.
 - **Only include terms specific to this project's context.** General programming concepts (timeouts, error types, utility patterns) don't belong even if the project uses them extensively. Before adding a term, ask: is this a concept unique to this context, or a general programming concept? Only the former belongs.

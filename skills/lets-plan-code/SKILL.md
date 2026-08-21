@@ -1,14 +1,12 @@
 ---
 name: lets-plan-code
 description: >-
-  Plan session that integrates with the existing domain model, sharpens terminology, and updates documentation (CONTEXT.md, ADRs) inline as decisions crystallise.
+  Plan session that integrates with the existing domain model, sharpens terminology, and updates documentation (CONTEXT.md, ADRs) as decisions are made.
 ---
 
-# Let's Plan Code
+# Let's plan code
 
 Run a planning session, using the `domain-modeling` skill.
-
-**Write all prose in ASD-STE100 Simplified Technical English** — the plan bullets, your questions, the `CONTEXT.md` and ADR updates, and your messages to the user. The `domain-modeling` skill above gives the rules.
 
 ## Wayfinder use
 
@@ -26,8 +24,8 @@ Return the plan to Wayfinder for storage. Do not create a separate project plan.
 3. Order questions by leverage: resolve the decision that most constrains downstream choices first, then re-evaluate.
 4. If a question can be answered by exploring the codebase, explore the codebase instead.
 5. Stop when no unresolved decisions would change the implementation, or remaining questions are cosmetic.
-6. Write the plan in bullets. Minimal prose, skip filler, keep it extremely concise.
-7. When the plan is complete you MUST run `fresh-eyes` (a review pass that helps catch bad assumptions). Integrate its findings into your plan — return to step 2 if it raises new questions.
+6. Write a concise plan in bullets. Skip filler.
+7. When the plan is complete you MUST run `fresh-eyes` (a review pass that helps catch bad assumptions). Integrate its findings into your plan. Return to step 2 if it raises new questions.
 8. Show a summary of how many decisions I made this session.
 </what-to-do>
 

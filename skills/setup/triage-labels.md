@@ -1,4 +1,4 @@
-# Triage Labels
+# Triage labels
 
 The skills speak in terms of five canonical triage roles. This file maps the actual label strings used in this repo's issue tracker.
 
@@ -8,6 +8,6 @@ The skills speak in terms of five canonical triage roles. This file maps the act
 | `needs-info`         | Waiting on reporter for more information |
 | `ready-for-agent`    | Fully specified, ready for an AFK agent  |
 | `ready-for-human`    | Requires human implementation            |
-| `wontfix`            | Will not be actioned                     |
+| `wontfix`            | Maintainers will not implement it        |
 
-When a skill mentions a role (e.g. "apply the AFK-ready triage label"), use the corresponding label string from this table.
+When a skill mentions a role, such as "apply the AFK-ready triage label", use the corresponding label string from this table.
