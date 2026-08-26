@@ -11,6 +11,7 @@
   "plugins": [
     {
       "name": "terebentina",
+      "version": "2.3.0",
       "description": "Collection of agent skills for planning, development, and tooling",
       "source": "./",
       "category": "productivity",
