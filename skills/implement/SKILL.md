@@ -35,7 +35,7 @@ Read, don't assume:
 ## 3. Prepare
 
 1. Ensure a **clean working tree** and a **green baseline**. The branch must start from committed work that passes test/lint/typecheck, since every post-merge re-verification is measured against it. If the tree is dirty or the baseline is red, stop and ask.
-2. Create and switch to a branch named after the spec/ticket using the repo convention, based off the **current** branch. If the branch already exists, reuse it and resume (skip already-closed tickets). Ensure any relevant but gitignored .env and node_modules are inside the worktrees.
+2. Create and switch to a branch named after the spec/ticket using the repo convention, based off the **current** branch. If the branch already exists, reuse it and resume (skip already-closed tickets). Ensure .env is inside the worktrees and you installed node_modules there. Don't just link node_modules as pnpm refuses that.
 3. **Epic.** Collect children that are open and labelled `ready-for-agent`. Read their native blocking edges to build the dependency tree.
    - A ticket is **unblocked** when every ticket blocking it is closed.
    - Report a ready ticket blocked by an open ticket that lacks `ready-for-agent`. You cannot build that blocker, so the dependent cannot start.
