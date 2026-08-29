@@ -32,7 +32,7 @@ Then use the available subagent tool to start an exploration subagent. Ask it to
 - Where do tightly-coupled modules leak across their seams?
 - Which parts of the codebase are untested, or hard to test through their current interface?
 
-Apply the **deletion test** to anything you suspect is shallow: would deleting it concentrate complexity, or just move it? A "yes, concentrates" is the signal you want.
+Apply the **deletion test** to anything you suspect is shallow: would deleting it concentrate complexity or just move it? A "yes, concentrates" is the signal you want.
 
 ### 2. Present candidates as an HTML report
 
