@@ -11,6 +11,8 @@ Act only as the **orchestrator**; subagents write the ticket code. Work the depe
 
 Follow the repo's tracker doc for queries, native blocking, claims, and closure. Run `terebentina:setup` if it is missing. Both orchestrator and subagents use `domain-modeling` whenever domain terminology or project records change.
 
+Both the orchestrator and every subagent must read and obey all applicable `CODING_STANDARDS.md` rules. Include this requirement in every subagent brief.
+
 ## Prepare
 
 1. Require an argument. Resolve it in the tracker, then `.scratch/`; stop with a helpful message if neither contains it. Treat tracker items with children as epics and other items as single tickets.
