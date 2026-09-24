@@ -1,0 +1,5 @@
+interface:
+  display_name: "Subtractive Review"
+  short_description: "Find code that can be safely removed"
+policy:
+  allow_implicit_invocation: false
