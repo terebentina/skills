@@ -39,8 +39,8 @@ Each subagent receives:
 
 - The ticket body, epic goal, current spec-branch HEAD, and summaries or cross-cutting decisions from already merged tickets. These summaries coordinate agents that cannot see parallel work.
 - The assigned worktree and the repo's verification commands.
-- The rules: use TDD (failing test, implementation, passing test); run lint and typecheck at checkpoints and at the end; respect the domain glossary and ADRs; complete any project record assigned to the ticket. Change an existing ADR only when the ticket requires it.
-- The required return: branch name, work summary, downstream findings, and any decision a sibling might contradict.
+- The rules: use `business-behavior-testing` to select consequential scenarios at a public seam; there is no test quota or mandatory red-green cycle. Exercise the changed path; run lint and typecheck at checkpoints and at the end; respect the domain glossary and ADRs; complete any project record assigned to the ticket. Change an existing ADR only when the ticket requires it.
+- The required return: branch name, work summary, protected rules and test seam (or why no new test was warranted), verification evidence, downstream findings, and any decision a sibling might contradict.
 
 ### Merge protocol
 

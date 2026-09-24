@@ -1,0 +1,4 @@
+interface:
+  display_name: "Business Behavior Testing"
+  short_description: "Test consequential behavior at stable seams"
+  default_prompt: "Use $business-behavior-testing to select and verify tests for this change."

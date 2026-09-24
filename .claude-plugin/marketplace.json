@@ -6,12 +6,12 @@
   },
   "metadata": {
     "description": "Collection of agent skills for planning, development, and tooling",
-    "version": "2.5.0"
+    "version": "2.6.0"
   },
   "plugins": [
     {
       "name": "terebentina",
-      "version": "2.5.0",
+      "version": "2.6.0",
       "description": "Collection of agent skills for planning, development, and tooling",
       "source": "./",
       "category": "productivity",
